@@ -16,6 +16,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 
 import br.com.claudio.entities.exception.RequiredObjectIsNullException;
 import br.com.claudio.entities.exception.ResourceNotFoundException;
+import jakarta.validation.UnexpectedTypeException;
 
 @ControllerAdvice
 @RestController
@@ -49,6 +50,20 @@ public class CustomizedResponseEntityExceptionHandle extends ResponseEntityExcep
 		
 		return new ResponseEntity<>(exceptionResponse, HttpStatus.INTERNAL_SERVER_ERROR);
 	}	
+	
+	@ExceptionHandler(UnexpectedTypeException.class)
+	public final ResponseEntity<ExceptionResponse> handleUnexpectedTypeException(
+			Exception ex, WebRequest request) {
+		
+		String message = "Campos inválidos";
+		
+		ExceptionResponse exceptionResponse = new ExceptionResponse(
+				new Date(),
+				message,
+				request.getDescription(false));
+		
+		return new ResponseEntity<>(exceptionResponse, HttpStatus.NOT_FOUND);
+	}	
 
 	
 	@ExceptionHandler(ResourceNotFoundException.class)
@@ -67,19 +82,21 @@ public class CustomizedResponseEntityExceptionHandle extends ResponseEntityExcep
 	public final ResponseEntity<ExceptionResponse> handleNotDataIntegrityViolationException(
 			Exception ex, WebRequest request) {
 		
-//		String erroDefault = ex.getMessage();
-//		
-//		String message = "";
-//		
-//		if (erroDefault.contains("messageTemplate")) {
-//			System.err.println(erroDefault);
-//			message = erroDefault.substring(erroDefault.indexOf("messageTemplate=")+1,
-//					erroDefault.indexOf("}")-1);
-//		}
+		String erroDefault = ex.getMessage();
+		
+		//String constraintNameString = ((ConstraintViolationException)ex.getCause()).getMessage();
+		
+		String message = "Regra de integridade violada. propriedade: '";
+		
+		
+		if (erroDefault.contains("unique constraint")) {
+			message += erroDefault.substring(erroDefault.indexOf("Key (")+5,
+					erroDefault.indexOf(")")) + "'";
+		}
 		
 		ExceptionResponse exceptionResponse = new ExceptionResponse(
 				new Date(),
-				ex.getMessage(),
+				message,
 				request.getDescription(false));
 		
 		//Key violation

@@ -10,6 +10,7 @@ import br.com.claudio.entities.persontype.gateway.PersonTypeGateway;
 import br.com.claudio.entities.persontype.model.PersonType;
 import jakarta.validation.constraints.NotBlank;
 
+
 @Service
 public class PersonTypeUseCase {
 	
@@ -31,6 +32,8 @@ public class PersonTypeUseCase {
 		if (input == null) throw new RequiredObjectIsNullException();
 		
 		var personType = new PersonType(input.id(), input.name());
+		
+		System.err.println(personType);
 		
 		return personTypeGateway.update(personType);
 	}
