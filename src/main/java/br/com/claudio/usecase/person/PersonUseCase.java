@@ -2,6 +2,8 @@ package br.com.claudio.usecase.person;
 
 import static br.com.claudio.infra.config.mapper.MapperConfig.modelMapper;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import br.com.claudio.entities.exception.RequiredObjectIsNullException;
@@ -35,6 +37,38 @@ public class PersonUseCase {
 		//System.err.println(person.toString());
 		
 		return personGateway.create(person);
+	}
+	
+	public Person updatePerson(PersonUpdateInput input) {
+		if (input == null) throw new RequiredObjectIsNullException();
+		
+		Person person = modelMapper().map(input, Person.class);
+		PersonType personType = personTypeGateway.findById(input.getPersonTypeId())
+				.orElseThrow(() -> new ResourceNotFoundException("Tipo de pessoa inválido"));
+		person.setPersonType(personType);
+		
+		return personGateway.update(person);
+	}
+	
+	public Person findPersonById(Long id) throws ResourceNotFoundException {
+		return personGateway.findById(id)
+				.orElseThrow(() -> new ResourceNotFoundException("Pessoa não encontrada!"));
+	}
+	
+	public List<Person> list(String fullName, String cpf, Integer rg) {
+		return personGateway.list(fullName, cpf, rg);
+	}
+	
+	public List<Person> searchPersonByName(String fullName) {
+		return personGateway.searchByName(fullName.toLowerCase());
+	}	
+
+	public void deletePerson(Long id) throws ResourceNotFoundException {
+		var person = personGateway.findById(id)
+				.orElseThrow(() -> new ResourceNotFoundException("Pessoa não encontrada!"));
+		
+		person.setActive(false);
+		personGateway.update(person);
 	}
 
 }

@@ -1,6 +1,8 @@
 package br.com.claudio.infra.config.db.schemas;
 
-import java.util.Date;
+import java.time.LocalDate;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -37,7 +39,8 @@ public class PersonSchema {
 	private String email;
 	
 	@Column(name = "birth_day")
-	private Date birthDay;
+	@DateTimeFormat(pattern="dd/MM/yyyy")
+	private LocalDate birthDay;
 	
 	@Column(length = 11, nullable = false, unique = true)
 	private String cpf;

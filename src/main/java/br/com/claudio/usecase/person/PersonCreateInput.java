@@ -1,6 +1,6 @@
 package br.com.claudio.usecase.person;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
@@ -21,7 +21,7 @@ public class PersonCreateInput {
 	@Email
 	private String email;
 	
-	private Date birthDay;
+	private LocalDate birthDay;
 	
 	@NotEmpty
 	private String cpf;

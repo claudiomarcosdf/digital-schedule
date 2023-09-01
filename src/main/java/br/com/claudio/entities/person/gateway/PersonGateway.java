@@ -15,5 +15,7 @@ public interface PersonGateway {
 	
 	Optional<Person> findById(Long id);
 	
-	List<Person> findAll();
+	List<Person> list(String fullName, String cpf, Integer rg);
+	
+	List<Person> searchByName(String partialName);
 }

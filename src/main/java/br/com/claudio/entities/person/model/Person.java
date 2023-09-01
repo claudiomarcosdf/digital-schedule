@@ -1,10 +1,11 @@
 package br.com.claudio.entities.person.model;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 import br.com.claudio.entities.persontype.model.PersonType;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -23,7 +24,7 @@ public class Person {
 	@Email
 	private String email;
 	
-	private Date birthDay;
+	private LocalDate birthDay;
 	
 	@NotEmpty
 	private String cpf;
@@ -40,6 +41,6 @@ public class Person {
 	
 	private Boolean active;
 	
-	@NotEmpty
+	@NotNull
 	private PersonType personType;	
 }

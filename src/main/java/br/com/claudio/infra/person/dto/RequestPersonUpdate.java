@@ -12,7 +12,10 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class RequestPersonCreate {
+public class RequestPersonUpdate {
+	
+	@NotNull
+	private Long id;
 	
 	@NotEmpty
 	private String fullName;
@@ -30,11 +33,13 @@ public class RequestPersonCreate {
 	
 	private String address;
 	
-	private Integer zipCode;
+	private Integer zipCode; 
 	
 	private String phone;
 
 	private String phone2;
+	
+	private Boolean active;
 	
 	@NotNull
 	private Long personTypeId;		

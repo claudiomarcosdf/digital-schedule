@@ -1,4 +1,4 @@
-package br.com.claudio.infra.person.dto;
+package br.com.claudio.usecase.person;
 
 import java.time.LocalDate;
 
@@ -9,10 +9,14 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class RequestPersonCreate {
+public class PersonUpdateInput {
+	
+	@NotNull
+	private Long id;
 	
 	@NotEmpty
 	private String fullName;
@@ -36,7 +40,8 @@ public class RequestPersonCreate {
 
 	private String phone2;
 	
+	private Boolean active;
+	
 	@NotNull
-	private Long personTypeId;		
-
+	private Long personTypeId;	
 }
