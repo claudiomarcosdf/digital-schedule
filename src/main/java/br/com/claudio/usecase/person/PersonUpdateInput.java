@@ -1,7 +1,10 @@
 package br.com.claudio.usecase.person;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
+import br.com.claudio.entities.persontype.model.PersonType;
+import br.com.claudio.infra.config.db.schemas.enums.Gender;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
@@ -32,6 +35,8 @@ public class PersonUpdateInput {
 	
 	private Integer rg;
 	
+	private String gender;	
+	
 	private String address;
 	
 	private Integer zipCode;
@@ -42,6 +47,11 @@ public class PersonUpdateInput {
 	
 	private Boolean active;
 	
-	@NotNull
-	private Long personTypeId;	
+	private PersonType personType;
+	
+	private LocalDateTime createdDate;
+	
+	public Gender getGender() {
+		return Gender.valueOf(this.gender.toUpperCase());
+	}
 }

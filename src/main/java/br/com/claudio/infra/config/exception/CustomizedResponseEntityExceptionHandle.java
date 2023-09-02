@@ -16,6 +16,9 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 
 import br.com.claudio.entities.exception.RequiredObjectIsNullException;
 import br.com.claudio.entities.exception.ResourceNotFoundException;
+import jakarta.validation.ConstraintViolation;
+import jakarta.validation.ConstraintViolationException;
+import jakarta.validation.Path.Node;
 import jakarta.validation.UnexpectedTypeException;
 
 @ControllerAdvice
@@ -103,6 +106,25 @@ public class CustomizedResponseEntityExceptionHandle extends ResponseEntityExcep
 		
 		return new ResponseEntity<>(exceptionResponse, HttpStatus.CONFLICT);
 	}
+	
+	@ExceptionHandler(ConstraintViolationException.class)
+	public final ResponseEntity<ExceptionResponse> handleConstraintViolationException(
+			ConstraintViolationException ex, WebRequest request) {
+		
+		ConstraintViolation<?> violation = ex.getConstraintViolations().iterator().next();
+		String field = "";
+		
+		for (Node node : violation.getPropertyPath()) {
+		    field = node.getName();
+		}
+		
+		ExceptionResponse exceptionResponse = new ExceptionResponse(
+				new Date(),
+				"Dados inválidos para a propriedade "+field,
+				request.getDescription(false));
+		
+		return new ResponseEntity<>(exceptionResponse, HttpStatus.BAD_REQUEST);
+	}	
 	
 	@ExceptionHandler(RequiredObjectIsNullException.class)
 	public final ResponseEntity<ExceptionResponse> handleRequiredObjectIsNullException(

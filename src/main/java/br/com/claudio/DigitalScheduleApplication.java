@@ -9,5 +9,5 @@ public class DigitalScheduleApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(DigitalScheduleApplication.class, args);
 	}
-
+	
 }

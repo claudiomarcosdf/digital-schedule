@@ -8,6 +8,7 @@ import java.util.Optional;
 
 import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import br.com.claudio.entities.person.gateway.PersonGateway;
 import br.com.claudio.entities.person.model.Person;
@@ -24,13 +25,11 @@ public class PersonDatabaseGateway implements PersonGateway {
 	}
 
 	@Override
+	@Transactional
 	public Person create(Person person) {
 		PersonSchema personSchema = toPersonSchema(person);
 		personSchema.setActive(true);
   	    PersonSchema personSchemaSaved = personRepository.save(personSchema);
-		
-		System.err.println("GATEWAY - SAVE TO SCHEMA");
-		System.err.println(personSchemaSaved.toString());
 		
 		return toPerson(personSchemaSaved);
 	}
@@ -38,14 +37,14 @@ public class PersonDatabaseGateway implements PersonGateway {
 	@Override
 	public Person update(Person person) {
 		PersonSchema personSchema = toPersonSchema(person);
+		
 		PersonSchema personSchemaSaved = personRepository.save(personSchema);
 		return toPerson(personSchemaSaved);
 	}
 
 	@Override
 	public void delete(Person person) {
-		// TODO Auto-generated method stub
-		
+		// Não haverá exclusão física de registro
 	}
 
 	@Override

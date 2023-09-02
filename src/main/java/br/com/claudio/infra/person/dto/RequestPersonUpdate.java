@@ -2,6 +2,7 @@ package br.com.claudio.infra.person.dto;
 
 import java.time.LocalDate;
 
+import br.com.claudio.infra.config.db.schemas.enums.Gender;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
@@ -31,6 +32,8 @@ public class RequestPersonUpdate {
 	
 	private Integer rg;
 	
+	private String gender;	
+	
 	private String address;
 	
 	private Integer zipCode; 
@@ -42,6 +45,6 @@ public class RequestPersonUpdate {
 	private Boolean active;
 	
 	@NotNull
-	private Long personTypeId;		
+	private PersonTypeCreate personType;	
 
 }

@@ -46,11 +46,18 @@ public class PersonTypeDatabaseGateway implements PersonTypeGateway{
 	}
 	
 	@Override
+	public Optional<PersonType> findByName(String name) {
+		return personTypeRepository.findByName(name)
+				.map(schema -> new PersonType(schema.getId(), schema.getName()));
+	}		
+	
+	@Override
 	public List<PersonType> findAll() {
 		return personTypeRepository.findAll()
 				.stream()
 				.map(schema -> new PersonType(schema.getId(), schema.getName()))
 				.collect(toList());
-	}	
+	}
+
 
 }

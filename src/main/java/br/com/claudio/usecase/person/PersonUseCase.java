@@ -6,47 +6,44 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import br.com.claudio.entities.exception.CpfInvalidException;
 import br.com.claudio.entities.exception.RequiredObjectIsNullException;
 import br.com.claudio.entities.exception.ResourceNotFoundException;
 import br.com.claudio.entities.person.gateway.PersonGateway;
 import br.com.claudio.entities.person.model.Person;
-import br.com.claudio.entities.persontype.gateway.PersonTypeGateway;
 import br.com.claudio.entities.persontype.model.PersonType;
+import static br.com.claudio.infra.config.validation.ValidCPF.isValidCPF;
+import br.com.claudio.usecase.persontype.PersonTypeUseCase;
 
 @Service
 public class PersonUseCase {
 	
 	private final PersonGateway personGateway;
-	private final PersonTypeGateway personTypeGateway;
 	
-	public PersonUseCase(PersonGateway personGateway, PersonTypeGateway personTypeGateway) {
+	private final PersonTypeUseCase personTypeUseCase;
+	
+	public PersonUseCase(PersonGateway personGateway, PersonTypeUseCase personTypeUseCase) {
 		this.personGateway = personGateway;
-		this.personTypeGateway = personTypeGateway;
+		this.personTypeUseCase = personTypeUseCase;
 	}
 	
 	public Person createPerson(PersonCreateInput input) {
 		if (input == null) throw new RequiredObjectIsNullException();
+		if (!isValidCPF(input.getCpf())) throw new CpfInvalidException();
+		
+		PersonType personType = personTypeUseCase.findPersonTypeById(input.getPersonType().getId());	
 		
 		Person person = modelMapper().map(input, Person.class);
-		
-		PersonType personType = personTypeGateway.findById(input.getPersonTypeId())
-				.orElseThrow(() -> new ResourceNotFoundException("Tipo de pessoa inválido"));
-		
 		person.setPersonType(personType);
-		//System.err.println("USE CASE");
-		//System.err.println(person.toString());
 		
 		return personGateway.create(person);
 	}
 	
-	public Person updatePerson(PersonUpdateInput input) {
+	public Person updatePerson(PersonUpdateInput input) throws ResourceNotFoundException {
 		if (input == null) throw new RequiredObjectIsNullException();
-		
+		if (!isValidCPF(input.getCpf())) throw new CpfInvalidException();
+				
 		Person person = modelMapper().map(input, Person.class);
-		PersonType personType = personTypeGateway.findById(input.getPersonTypeId())
-				.orElseThrow(() -> new ResourceNotFoundException("Tipo de pessoa inválido"));
-		person.setPersonType(personType);
-		
 		return personGateway.update(person);
 	}
 	

@@ -12,5 +12,7 @@ public interface PersonTypeGateway {
 	void delete(PersonType personType);
 	
 	Optional<PersonType> findById(Long id);
+	
+	Optional<PersonType> findByName(String name);
 	List<PersonType> findAll();
 }

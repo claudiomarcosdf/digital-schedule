@@ -52,6 +52,12 @@ public class PersonTypeUseCase {
 				.orElseThrow(() -> new ResourceNotFoundException("Tipo de pessoa não encontrada!"));		
 	}
 	
+	public PersonType findPersonTypeByName(String name) throws ResourceNotFoundException {
+		return personTypeGateway
+				.findByName(name)
+				.orElseThrow(() -> new ResourceNotFoundException("Tipo de pessoa não encontrada!"));		
+	}	
+	
 	public List<PersonType> findAllPersonType() {
 		return personTypeGateway.findAll();
 	}

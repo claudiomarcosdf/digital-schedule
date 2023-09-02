@@ -28,6 +28,8 @@ public class RequestPersonCreate {
 	
 	private Integer rg;
 	
+	private String gender;
+	
 	private String address;
 	
 	private Integer zipCode;
@@ -37,6 +39,6 @@ public class RequestPersonCreate {
 	private String phone2;
 	
 	@NotNull
-	private Long personTypeId;		
+	private PersonTypeCreate personType;		
 
 }
