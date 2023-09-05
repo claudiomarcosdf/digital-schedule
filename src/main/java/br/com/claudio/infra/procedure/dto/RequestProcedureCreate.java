@@ -1,0 +1,25 @@
+package br.com.claudio.infra.procedure.dto;
+
+import java.math.BigDecimal;
+
+import br.com.claudio.entities.professionaltype.model.ProfessionalType;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class RequestProcedureCreate {
+	
+	@NotEmpty
+	private String name;
+	
+	private BigDecimal price = BigDecimal.ZERO;
+	
+	@NotNull
+	private ProfessionalType professionalType;			
+
+}

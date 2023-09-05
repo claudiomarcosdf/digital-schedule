@@ -1,5 +1,7 @@
 package br.com.claudio.infra.config.db.schemas;
 
+import java.io.Serializable;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -16,8 +18,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Table(name = "person_types")
 @Entity
-public class PersonTypeSchema {
-	
+public class PersonTypeSchema implements Serializable  {
+	private static final long serialVersionUID = -3260090255944590743L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;

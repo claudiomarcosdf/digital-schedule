@@ -31,10 +31,9 @@ public class PersonTypeUseCase {
 	public PersonType updatePersonType(UpdateInput input) throws RequiredObjectIsNullException {
 		if (input == null) throw new RequiredObjectIsNullException();
 		
+		this.findPersonTypeById(input.id());
+		
 		var personType = new PersonType(input.id(), input.name());
-		
-		System.err.println(personType);
-		
 		return personTypeGateway.update(personType);
 	}
 	

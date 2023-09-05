@@ -12,8 +12,11 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.request.WebRequest;
+import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
+import br.com.claudio.entities.exception.CpfInvalidException;
+import br.com.claudio.entities.exception.InvalidOperationException;
 import br.com.claudio.entities.exception.RequiredObjectIsNullException;
 import br.com.claudio.entities.exception.ResourceNotFoundException;
 import jakarta.validation.ConstraintViolation;
@@ -40,6 +43,18 @@ public class CustomizedResponseEntityExceptionHandle extends ResponseEntityExcep
 		
 		//Responde com um 422 ao invés de 400 para os Beans não validados
 		return new ResponseEntity<>(exceptionResponse, HttpStatus.UNPROCESSABLE_ENTITY);
+	}
+	
+	@ExceptionHandler(MethodArgumentTypeMismatchException.class)
+	public final ResponseEntity<ExceptionResponse> handleAllExceptions(
+			MethodArgumentTypeMismatchException ex, WebRequest request) {
+		
+		ExceptionResponse exceptionResponse = new ExceptionResponse(
+				new Date(),
+				"Parâmetro da requisição inválido!",
+				request.getDescription(false));
+		
+		return new ResponseEntity<>(exceptionResponse, HttpStatus.BAD_REQUEST);
 	}	
 	
 	@ExceptionHandler(Exception.class)
@@ -85,7 +100,7 @@ public class CustomizedResponseEntityExceptionHandle extends ResponseEntityExcep
 	public final ResponseEntity<ExceptionResponse> handleNotDataIntegrityViolationException(
 			Exception ex, WebRequest request) {
 		
-		String erroDefault = ex.getMessage();
+		String erroDefault = ex.getMessage() != null ? ex.getMessage() : "";
 		
 		//String constraintNameString = ((ConstraintViolationException)ex.getCause()).getMessage();
 		
@@ -137,6 +152,30 @@ public class CustomizedResponseEntityExceptionHandle extends ResponseEntityExcep
 		
 		return new ResponseEntity<>(exceptionResponse, HttpStatus.CONFLICT);
 	}
+	
+	@ExceptionHandler(CpfInvalidException.class)
+	public final ResponseEntity<ExceptionResponse> handleCpfInvalidException(
+			Exception ex, WebRequest request) {
+		
+		ExceptionResponse exceptionResponse = new ExceptionResponse(
+				new Date(),
+				ex.getMessage(),
+				request.getDescription(false));
+		
+		return new ResponseEntity<>(exceptionResponse, HttpStatus.BAD_REQUEST);
+	}
+	
+	@ExceptionHandler(InvalidOperationException.class)
+	public final ResponseEntity<ExceptionResponse> handleInvalidOperationException(
+			Exception ex, WebRequest request) {
+		
+		ExceptionResponse exceptionResponse = new ExceptionResponse(
+				new Date(),
+				ex.getMessage(),
+				request.getDescription(false));
+		
+		return new ResponseEntity<>(exceptionResponse, HttpStatus.BAD_REQUEST);
+	}	
 	
 
 }

@@ -1,6 +1,5 @@
-package br.com.claudio.infra.config.db.schemas;
+package br.com.claudio.common;
 
-import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
@@ -11,6 +10,8 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import br.com.claudio.infra.config.db.schemas.PatientSchema;
+import br.com.claudio.infra.config.db.schemas.PersonTypeSchema;
 import br.com.claudio.infra.config.db.schemas.enums.Gender;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -39,11 +40,10 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "persons")
 @EntityListeners(AuditingEntityListener.class)
-public class PersonSchema implements Serializable {
-	private static final long serialVersionUID = 4345295048630389812L;
-
+public class PersonH2 {
+	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
 	@NotEmpty
@@ -89,10 +89,6 @@ public class PersonSchema implements Serializable {
 	@JsonIgnore
 	private PatientSchema patient;
 	
-	@OneToOne(mappedBy = "person", fetch = FetchType.EAGER)
-	@JsonIgnore
-	private ProfessionalSchema professional;
-	
 	@CreatedDate
 	@Column(name = "created_at")
 	private LocalDateTime createdDate;
@@ -107,6 +103,6 @@ public class PersonSchema implements Serializable {
 		this.phone2 = (this.phone2!=null?this.phone2.trim().replaceAll("[^0-9]", ""):null);
 		this.cpf = (this.cpf!=null?this.cpf.trim().replaceAll("\\.|-|/", ""):null);
 		
-	}
+	}	
 
 }

@@ -23,7 +23,6 @@ public class PatientDatabaseGateway implements PatientGateway {
 	public PatientDatabaseGateway(PatientRepository patientRepository) {
 		this.patientRepository = patientRepository;
 	}
-	
 
 	@Override
 	public Patient create(Patient patient) {

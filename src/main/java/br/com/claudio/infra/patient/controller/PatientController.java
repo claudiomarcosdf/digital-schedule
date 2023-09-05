@@ -39,7 +39,9 @@ public class PatientController {
 	public Patient createPatient(@RequestBody @Valid RequestPatientCreate request) {
 		
 		PatientCreateInput patientCreateInput = modelMapper().map(request, PatientCreateInput.class);
-		return patientUseCase.createPatient(patientCreateInput);
+		Patient patient = patientUseCase.createPatient(patientCreateInput);
+				
+		return patient;
 	}	
 	
 	@PutMapping
@@ -66,6 +68,7 @@ public class PatientController {
 	}	
 	
 	@DeleteMapping("/{id}")
+	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void deletePatient(@PathVariable("id") Long id) {
 		patientUseCase.deletePatient(id);
 	}

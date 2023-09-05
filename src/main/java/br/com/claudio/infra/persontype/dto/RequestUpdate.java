@@ -9,4 +9,6 @@ public record RequestUpdate(
 		Long id,
 		@Size(max = 30, message = "O tamanho máximo para o nome é de 30 caracteres")
 		@NotBlank(message = "O nome do tipo de pessoa é obrigatório")
-		String name) {}
+		String name, Boolean active) {}
+         
+        

@@ -36,6 +36,8 @@ public class PatientUseCase {
 		patient.setNickName(input.getNickName());
 		patient.setPerson(person);
 		
+		
+		
 		return patientGateway.create(patient);
 	}
 	
@@ -70,8 +72,10 @@ public class PatientUseCase {
 		var patient = patientGateway.findById(id)
 				.orElseThrow(() -> new ResourceNotFoundException("Paciente não encontrado!"));
 		
-		patient.getPerson().setActive(false);
-		patientGateway.update(patient);
+		PersonUpdateInput personUpdateInput = modelMapper().map(patient.getPerson(), PersonUpdateInput.class);
+		personUpdateInput.setActive(false);
+
+		personUseCase.updatePerson(personUpdateInput);
 	}
 	
 

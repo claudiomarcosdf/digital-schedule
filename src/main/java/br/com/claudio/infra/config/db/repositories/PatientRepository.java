@@ -18,7 +18,7 @@ public interface PatientRepository extends JpaRepository<PatientSchema, Long> {
 			  "AND LOWER(patient.person.fullName) LIKE %:partialName% "+
 			  "ORDER BY patient.person.fullName"
 			  )
-		List<PatientSchema> searchByName(String partialName);
+	List<PatientSchema> searchByName(String partialName);
 
 	List<Patient> findByNickName(String nickName);	
 

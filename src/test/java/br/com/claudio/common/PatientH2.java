@@ -1,7 +1,6 @@
-package br.com.claudio.infra.config.db.schemas;
+package br.com.claudio.common;
 
-import java.io.Serializable;
-
+import br.com.claudio.infra.config.db.schemas.PersonSchema;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -20,11 +19,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Entity
 @Table(name = "patients")
-public class PatientSchema implements Serializable  {
-	private static final long serialVersionUID = -4200858246002799693L;
-
+public class PatientH2 {
+	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
 	@Column(name = "nick_name")
@@ -32,6 +30,6 @@ public class PatientSchema implements Serializable  {
 	
 	@JoinColumn(name = "person_id", referencedColumnName = "id")
 	@OneToOne(optional = false, fetch = FetchType.EAGER) //Não funciona se colocar CascadeType.ALL
-	private PersonSchema person;
+	private PersonSchema person;	
 
 }
