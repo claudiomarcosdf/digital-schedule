@@ -18,4 +18,8 @@ public interface PersonGateway {
 	List<Person> list(String fullName, String cpf, Integer rg);
 	
 	List<Person> searchByName(String partialName);
+
+	boolean findByCpf(String cpf);
+
+	boolean cpfAnotherPerson(Long id, String cpf);
 }

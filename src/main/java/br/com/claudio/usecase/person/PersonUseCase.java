@@ -4,6 +4,7 @@ import static br.com.claudio.infra.config.mapper.MapperConfig.modelMapper;
 
 import java.util.List;
 
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import br.com.claudio.entities.exception.CpfInvalidException;
@@ -29,7 +30,13 @@ public class PersonUseCase {
 	
 	public Person createPerson(PersonCreateInput input) {
 		if (input == null) throw new RequiredObjectIsNullException();
-		if (!isValidCPF(input.getCpf())) throw new CpfInvalidException();
+		/* Vefifica se cpf já existe no banco - o tratamento está sendo feito no método, pois
+		 * é possível a inclusão sem o cpf, no primeiro momento
+		 */
+		if (input.getCpf() != null && !input.getCpf().equals("")) {
+			if(!isValidCPF(input.getCpf())) throw new CpfInvalidException();
+			if (personGateway.findByCpf(input.getCpf())) throw new DataIntegrityViolationException("Cpf já cadastrado!");
+		}
 		
 		PersonType personType = personTypeUseCase.findPersonTypeById(input.getPersonType().getId());	
 		
@@ -41,7 +48,13 @@ public class PersonUseCase {
 	
 	public Person updatePerson(PersonUpdateInput input) throws ResourceNotFoundException {
 		if (input == null) throw new RequiredObjectIsNullException();
-		if (!isValidCPF(input.getCpf())) throw new CpfInvalidException();
+		/* Vefifica se cpf já existe no banco - o tratamento está sendo feito no método, pois
+		 * é possível a inclusão sem o cpf, no primeiro momento
+		 */
+		if (input.getCpf() != null && !input.getCpf().equals("")) {
+			if(!isValidCPF(input.getCpf())) throw new CpfInvalidException();
+			if (personGateway.cpfAnotherPerson(input.getId(), input.getCpf())) throw new DataIntegrityViolationException("Cpf já cadastrado!");
+		}		
 				
 		Person person = modelMapper().map(input, Person.class);
 		return personGateway.update(person);

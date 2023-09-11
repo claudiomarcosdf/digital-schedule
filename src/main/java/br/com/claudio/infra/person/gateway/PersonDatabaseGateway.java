@@ -88,4 +88,17 @@ public class PersonDatabaseGateway implements PersonGateway {
 		return personList;
 	}
 
+	@Override
+	public boolean findByCpf(String cpf) {
+		Optional<PersonSchema> personSchema = personRepository.findByCpf(cpf.trim().replaceAll("\\.|-|/", ""));
+		return personSchema.isPresent();
+	}
+
+	@Override
+	public boolean cpfAnotherPerson(Long id, String cpf) {
+		String cpfToFind = cpf.trim().replaceAll("\\.|-|/", "");
+		Optional<PersonSchema> personSchema = personRepository.findByIdAndCpf(id, cpfToFind);
+		return personSchema.isPresent();
+	}
+
 }

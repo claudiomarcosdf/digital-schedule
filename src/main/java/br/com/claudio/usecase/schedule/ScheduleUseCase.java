@@ -49,6 +49,7 @@ public class ScheduleUseCase {
 	public Schedule createSchedule(ScheduleCreateInput input) {
 		if (input == null) throw new RequiredObjectIsNullException();
 		
+		if (input.getEndDate().isBefore(input.getStartDate())) throw new InvalidOperationException("A data final dever ser maior que a data inicial!");
 		
 		ProfessionalType professionalType = professionalTypeUseCase.findProfessionalTypeById(input.getProfessionalTypeId());
 

@@ -51,14 +51,14 @@ public class PersonSchema implements Serializable {
 	private String fullName;
 	
 	@Email
-	@Column(nullable = false, unique = true)
+	@Column(nullable = true)
 	private String email;
 	
 	@Column(name = "birth_day")
 	@DateTimeFormat(pattern="dd/MM/yyyy")
 	private LocalDate birthDay;
 	
-	@Column(length = 11, nullable = false, unique = true)
+	@Column(length = 11)
 	private String cpf;
 	
 	private Integer rg;

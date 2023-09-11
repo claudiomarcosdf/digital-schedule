@@ -21,13 +21,11 @@ public class RequestPersonUpdate {
 	@NotEmpty
 	private String fullName;
 	
-	@NotEmpty
 	@Email
 	private String email;
 	
 	private LocalDate birthDay;
 	
-	@NotEmpty
 	private String cpf;
 	
 	private Integer rg;
