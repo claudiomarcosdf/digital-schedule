@@ -29,15 +29,15 @@ public class ProfessionalConstants {
 	
 	public static final ProfessionalType PROFESSIONALTYPE_PROFISSIONAL = new ProfessionalType(1L, "Medico", true);
 
-	public static final Professional INVALID_PROFESSIONAL = new Professional(null, "", null, 30, 0, INVALID_PERSON_PROFESSIONAL, PROFESSIONALTYPE_PROFISSIONAL);
+	public static final Professional INVALID_PROFESSIONAL = new Professional(null, "", null, 30, 0, INVALID_PERSON_PROFESSIONAL, PROFESSIONALTYPE_PROFISSIONAL, null);
 	
 	
-	public static final Professional VALID_PROFESSIONAL_WITH_INVALID_PERSON = new Professional(1L, "name1", 3345, 30, 0, INVALID_PERSON_PROFESSIONAL, PROFESSIONALTYPE_PROFISSIONAL);
+	public static final Professional VALID_PROFESSIONAL_WITH_INVALID_PERSON = new Professional(1L, "name1", 3345, 30, 0, INVALID_PERSON_PROFESSIONAL, PROFESSIONALTYPE_PROFISSIONAL, null);
 	
-	public static final Professional INVALID_PROFESSIONAL_WITH_INVALID_CPF = new Professional(1L, "name1", 12345, 30, 0, INVALID_PERSON_PROFESSIONAL, PROFESSIONALTYPE_PROFISSIONAL);	
+	public static final Professional INVALID_PROFESSIONAL_WITH_INVALID_CPF = new Professional(1L, "name1", 12345, 30, 0, INVALID_PERSON_PROFESSIONAL, PROFESSIONALTYPE_PROFISSIONAL, null);	
 	
-	public static final Professional PROFESSIONAL1 = new Professional(1L, "Dr Julio", 50998, 30, 0, PERSON_PROFESSIONAL, PROFESSIONALTYPE_PROFISSIONAL); 
-	public static final Professional PROFESSIONAL2 = new Professional(2L, "Dra Tereza", 51009, 30, 0, PERSON_PROFESSIONAL, PROFESSIONALTYPE_PROFISSIONAL);
+	public static final Professional PROFESSIONAL1 = new Professional(1L, "Dr Julio", 50998, 30, 0, PERSON_PROFESSIONAL, PROFESSIONALTYPE_PROFISSIONAL, null); 
+	public static final Professional PROFESSIONAL2 = new Professional(2L, "Dra Tereza", 51009, 30, 0, PERSON_PROFESSIONAL, PROFESSIONALTYPE_PROFISSIONAL, null);
 	
 	@SuppressWarnings("serial")
 	public static final List<Professional> PROFESSIONALLIST = new ArrayList<>() {

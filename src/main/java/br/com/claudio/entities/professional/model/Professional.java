@@ -1,6 +1,7 @@
 package br.com.claudio.entities.professional.model;
 
 import br.com.claudio.entities.person.model.Person;
+import br.com.claudio.entities.professionalSchedule.model.ProfessionalSchedule;
 import br.com.claudio.entities.professionaltype.model.ProfessionalType;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -27,5 +28,11 @@ public class Professional {
 	private Person person;
 	
 	@NotNull
-	private ProfessionalType professionalType;	
+	private ProfessionalType professionalType;
+	
+	private ProfessionalSchedule professionalSchedule;
+	
+	public boolean hasSchedule() {
+		return professionalSchedule != null ? (professionalSchedule.getId() != null ? true : false) : false;
+	}
 }

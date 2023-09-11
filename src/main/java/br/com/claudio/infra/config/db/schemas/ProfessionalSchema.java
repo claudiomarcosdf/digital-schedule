@@ -49,5 +49,9 @@ public class ProfessionalSchema implements Serializable {
 	@JoinColumn(name = "professional_type_id", referencedColumnName = "id")
 	@ManyToOne
 	private ProfessionalTypeSchema professionalType;
+	
+	@JoinColumn(name = "professional_schedule_id", referencedColumnName = "id")
+	@OneToOne(fetch = FetchType.EAGER)
+	private ProfessionalScheduleSchema professionalSchedule;
 
 }

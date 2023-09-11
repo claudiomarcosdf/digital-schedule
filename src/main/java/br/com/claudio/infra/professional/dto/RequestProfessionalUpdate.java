@@ -12,6 +12,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class RequestProfessionalUpdate {
 	
+	@NotNull
 	private Long id;
 	
 	private String nickName;

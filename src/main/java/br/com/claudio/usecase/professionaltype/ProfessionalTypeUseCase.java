@@ -47,8 +47,9 @@ public class ProfessionalTypeUseCase {
 				.findByName(name)
 				.orElseThrow(() -> new ResourceNotFoundException("Tipo de profissional não encontrado!"));	
 	}
-	public List<ProfessionalType> findAllProfessionalType() {
-		return professionalTypeGateway.findAll();
+	
+	public List<ProfessionalType> findAllProfessionalType(Boolean active) {
+		return professionalTypeGateway.findAll(active);
 	}
 
 	public void deleteProfessionalType(Long id) {

@@ -13,6 +13,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class RequestProcedureUpdate {
 	
+	@NotNull
 	private Long id;	
 	
 	@NotNull

@@ -152,7 +152,7 @@ public class PatientControllerTest {
 	}	
 	
 	@Test
-	public void deletePatient_WithUnexistingId_ReturnsNoContent() throws Exception {
+	public void deletePatient_WithUnexistingId_ReturnsBadRequest() throws Exception {
 		doThrow(new ResourceNotFoundException("")).when(patientUseCase).deletePatient(99L);
 		
 		mockMvc.perform(delete("/patients/99"))

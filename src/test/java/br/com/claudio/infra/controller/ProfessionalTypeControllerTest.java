@@ -109,17 +109,18 @@ public class ProfessionalTypeControllerTest {
 	}	
 	
 	@Test
-	public void listProfessionalType_ReturnsAllProfessionalTypes() throws Exception {
-		when(professionalTypeUseCase.findAllProfessionalType()).thenReturn(PROFESSIONALTYPELIST);
+	public void listProfessionalType_ReturnsAllActiveProfessionalTypes() throws Exception {
+		Boolean active = true;
+		when(professionalTypeUseCase.findAllProfessionalType(active)).thenReturn(PROFESSIONALTYPELIST);
 		
-		mockMvc.perform(get("/professionaltypes"))
+		mockMvc.perform(get("/professionaltypes").param("active", "true"))
 		.andExpect(status().isOk())
 		.andExpect(jsonPath("$", hasSize(2)));
 	}
 	
 	@Test
 	public void listProfessionalType_ReturnsNoProfessionalTypes() throws Exception {
-		when(professionalTypeUseCase.findAllProfessionalType()).thenReturn(Collections.emptyList());
+		when(professionalTypeUseCase.findAllProfessionalType(true)).thenReturn(Collections.emptyList());
 		
 		mockMvc.perform(get("/professionaltypes"))
 		.andExpect(status().isOk())

@@ -1,10 +1,10 @@
 package br.com.claudio.infra.professionaltype.gateway;
 
-import static java.util.stream.Collectors.toList;
-
 import java.util.List;
+import static java.util.stream.Collectors.toList;
 import java.util.Optional;
 
+import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Component;
 
 import br.com.claudio.entities.professionaltype.gateway.ProfessionalTypeGateway;
@@ -49,13 +49,17 @@ public class ProfessionalTypeDatabaseGateway implements ProfessionalTypeGateway 
 		return professionalTypeRepository.findByName(name)
 				.map(schema -> new ProfessionalType(schema.getId(), schema.getName(), schema.getActive()));
 	}
-
-	@Override
-	public List<ProfessionalType> findAll() {
-		return professionalTypeRepository.findAll()
+	
+	public List<ProfessionalType> findAll(Boolean active) {
+		ProfessionalTypeSchema professionalTypeSchema = new ProfessionalTypeSchema();
+		professionalTypeSchema.setActive(active);
+		
+		Example<ProfessionalTypeSchema> query = QueryBuilderProfessionalType.makeQuery(professionalTypeSchema);
+		
+		return professionalTypeRepository.findAll(query)
 				.stream()
 				.map(schema -> new ProfessionalType(schema.getId(), schema.getName(), schema.getActive()))
-				.collect(toList());
+				.collect(toList());				
 	}
 
 }

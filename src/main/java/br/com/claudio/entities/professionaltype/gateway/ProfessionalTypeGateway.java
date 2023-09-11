@@ -17,6 +17,6 @@ public interface ProfessionalTypeGateway {
 	
 	Optional<ProfessionalType> findByName(String name);
 	
-	List<ProfessionalType> findAll();
+	List<ProfessionalType> findAll(Boolean active);
 
 }

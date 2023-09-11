@@ -54,7 +54,7 @@ public class ProcedureDatabaseGateway implements ProcedureGateway {
 
 	@Override
 	public List<Procedure> findByProfessionalTypeId(Long id) {
-		List<ProcedureSchema> procedureListSchema = procedureRepository.findByProfessionalTypeId(id);
+		List<ProcedureSchema> procedureListSchema = procedureRepository.findByActiveAndProfessionalTypeId(true, id);
 		return toProcedureList(procedureListSchema);
 	}	
 	private ProcedureSchema toProcedureSchema(Procedure procedure) {
