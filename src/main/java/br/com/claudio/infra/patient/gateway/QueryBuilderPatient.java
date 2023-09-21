@@ -9,7 +9,7 @@ public class QueryBuilderPatient {
 		
 	public static Example<PatientSchema> makeQuery(PatientSchema patientSchema) {
 		ExampleMatcher exampleMatcher = ExampleMatcher.matchingAll()
-				.withIgnorePaths("active").withIgnoreCase().withIgnoreNullValues();
+				.withIgnorePaths("person.active").withIgnoreCase().withIgnoreNullValues();
 				
 	    return Example.of(patientSchema, exampleMatcher);
 	}	
