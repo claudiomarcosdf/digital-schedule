@@ -61,8 +61,10 @@ public class ProfessionalUseCase {
 		PersonUpdateInput personInput = modelMapper().map(input.getPerson(), PersonUpdateInput.class);
 		personInput.setCreatedDate(professional.getPerson().getCreatedDate());
 		personUseCase.updatePerson(personInput);
-		
+	
 		Professional professionalMapped = modelMapper().map(input, Professional.class);
+		professionalMapped.setProfessionalSchedule(professional.getProfessionalSchedule());
+		
 		return professionalGateway.update(professionalMapped);
 	}
 	

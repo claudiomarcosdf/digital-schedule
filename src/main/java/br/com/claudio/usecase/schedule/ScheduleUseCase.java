@@ -179,13 +179,25 @@ public class ScheduleUseCase {
 			break;
 		}
 		
-		if (startTime.equals(hourMorningIni) 
-				|| (startTime.isAfter(hourMorningIni) && startTime.isBefore(hourMorningEnd)) ) {
-			valid = true;
-		} else if (startTime.equals(hourAfternoonIni) 
-				|| (startTime.isAfter(hourAfternoonIni) && startTime.isBefore(hourAfternoonEnd)) ) {
-			valid = true;
+		if (hourMorningIni != null && hourMorningEnd != null) {
+			if (startTime.equals(hourMorningIni) 
+					|| (startTime.isAfter(hourMorningIni) && startTime.isBefore(hourMorningEnd)) ) {
+				valid = true;
+			}			
+		} else if (hourAfternoonIni != null && hourAfternoonEnd != null) {
+			if (startTime.equals(hourAfternoonIni) 
+					|| (startTime.isAfter(hourAfternoonIni) && startTime.isBefore(hourAfternoonEnd)) ) {
+				valid = true;
+			}			
 		}
+		
+//		if (startTime.equals(hourMorningIni) 
+//				|| (startTime.isAfter(hourMorningIni) && startTime.isBefore(hourMorningEnd)) ) {
+//			valid = true;
+//		} else if (startTime.equals(hourAfternoonIni) 
+//				|| (startTime.isAfter(hourAfternoonIni) && startTime.isBefore(hourAfternoonEnd)) ) {
+//			valid = true;
+//		}
 		
 		if (!valid) throw new InvalidOperationException("Profissional não disponível para o horário agendado!");
 		

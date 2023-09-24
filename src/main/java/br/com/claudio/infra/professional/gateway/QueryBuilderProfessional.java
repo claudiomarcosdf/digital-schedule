@@ -9,7 +9,7 @@ public class QueryBuilderProfessional {
 		
 	public static Example<ProfessionalSchema> makeQuery(ProfessionalSchema professionalSchema) {
 		ExampleMatcher exampleMatcher = ExampleMatcher.matchingAll()
-				.withIgnorePaths("active").withIgnoreCase().withIgnoreNullValues();
+				.withIgnorePaths("person.active").withIgnorePaths("intervalService").withIgnoreCase().withIgnoreNullValues();
 				
 	    return Example.of(professionalSchema, exampleMatcher);
 	}	

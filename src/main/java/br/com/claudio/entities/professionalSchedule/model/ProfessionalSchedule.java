@@ -28,19 +28,39 @@ public class ProfessionalSchedule {
 	private String sunday;
 	
 	public LocalTime getHourMorningIni(String value) {
-		return LocalTime.parse(value.substring(0, 5));
+		if (value == null) return null;
+		if (value != null && value.startsWith("null")) {
+			return null;
+		} else return LocalTime.parse(value.substring(0, 5)); 
 	}
 	
 	public LocalTime getHourMorningEnd(String value) {
-		return LocalTime.parse(value.substring(6, 11));
+		if (value == null) return null;
+		if (value != null && value.startsWith("null")) {
+			return null;
+		} else return LocalTime.parse(value.substring(6, 11));
 	}
 	
 	public LocalTime getHourAfternoonIni(String value) {
-		return LocalTime.parse(value.substring(12, 17));
+		//08:00-12:00,null  or  null,14:00-18:00
+
+		if (value != null) {
+			if (value.endsWith("null")) return null;
+			else if (value.startsWith("null")) return LocalTime.parse(value.substring(5, 10));
+			else return LocalTime.parse(value.substring(12, 17));
+		}
+		return null;
 	}
 	
 	public LocalTime getHourAfternoonEnd(String value) {
-		return LocalTime.parse(value.substring(18, 23));
+		//08:00-12:00,null  or  null,14:00-18:00
+		if (value != null) {
+			if (value.endsWith("null")) return null;
+			else if (value.startsWith("null")) return LocalTime.parse(value.substring(11 , 16));
+			else return LocalTime.parse(value.substring(18, 23));
+		}
+		return null;
+
 	}
 	
 }
