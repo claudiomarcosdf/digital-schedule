@@ -119,7 +119,7 @@ public class ProcedureControllerTest {
 	public void searchProceduresByProfessionalType_ReturnsProcedureList() throws Exception {
 		when(procedureUseCase.findProfessionalTypeId(1L)).thenReturn(PROCEDURELIST);
 		
-		mockMvc.perform(get("/procedures/professionalType/1"))
+		mockMvc.perform(get("/procedures/professionaltype/1"))
 		.andExpect(status().isOk())
 		.andExpect(jsonPath("$", hasSize(2)));
 	}
@@ -128,7 +128,7 @@ public class ProcedureControllerTest {
 	public void searchProceduresByProfessionalType_ReturnsNoProcedures() throws Exception {
 		when(procedureUseCase.findProfessionalTypeId(99L)).thenReturn(Collections.emptyList());
 		
-		mockMvc.perform(get("/procedures/professionalType/99"))
+		mockMvc.perform(get("/procedures/professionaltype/99"))
 		.andExpect(status().isOk())
 		.andExpect(jsonPath("$", hasSize(0)));
 	}	

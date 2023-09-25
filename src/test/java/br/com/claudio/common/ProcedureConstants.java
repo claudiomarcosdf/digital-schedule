@@ -28,7 +28,7 @@ public class ProcedureConstants {
 	};
 	
 	public static final ProcedureCreateInput PROCEDURECREATEIMPUT = new ProcedureCreateInput("New procedure", BigDecimal.ZERO, VALID_PROFESSIONALTYPE);
-	public static final ProcedureUpdateInput PROCEDUREUPDATEIMPUT = new ProcedureUpdateInput(1l, "procedure 1", BigDecimal.TEN, VALID_PROFESSIONALTYPE);
+	public static final ProcedureUpdateInput PROCEDUREUPDATEIMPUT = new ProcedureUpdateInput(1l, "procedure 1", BigDecimal.TEN, true, VALID_PROFESSIONALTYPE);
 	public static final ProcedureCreateInput PROCEDURECREATEIMPUT_INACTIVE_PROFESSIONALTYPE = new ProcedureCreateInput("New procedure", BigDecimal.ZERO, INVALID_PROFESSIONALTYPE);
 	
 }

@@ -18,6 +18,7 @@ public interface ProcedureRepository extends JpaRepository<ProcedureSchema, Long
 	List<ProcedureSchema> searchByName(String partialName);
 
 	List<ProcedureSchema> findByActiveAndProfessionalTypeId(boolean active, Long id);
+	List<ProcedureSchema> findByProfessionalTypeId(Long id);
 
 	@Query("SELECT procedure FROM ProcedureSchema procedure WHERE " +
 			  "LOWER(procedure.name) = :name "+

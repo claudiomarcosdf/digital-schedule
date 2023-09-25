@@ -15,7 +15,9 @@ public interface ProcedureGateway {
 	
 	Optional<Procedure> findById(Long id);
 	
-	List<Procedure> findByProfessionalTypeId(Long id);
+	List<Procedure> findByActiveProfessionalTypeId(Long id);
+	
+	List<Procedure> findByProfessionalTypeId(Long id);	
 	
 	List<Procedure> searchByName(String partialName);
 

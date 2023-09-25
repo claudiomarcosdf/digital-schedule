@@ -56,10 +56,15 @@ public class ProcedureController {
 		return procedureUseCase.searchProcedureByName(partialName);
 	}
 	
-	@GetMapping("/professionalType/{id}")
+	@GetMapping("/activeprofessionaltype/{id}")
+	public List<Procedure> findActiveProfessionalTypeId(@PathVariable("id") Long id) {
+		return procedureUseCase.findActiveProfessionalTypeId(id);
+	}	
+	
+	@GetMapping("/professionaltype/{id}")
 	public List<Procedure> findProfessionalTypeId(@PathVariable("id") Long id) {
 		return procedureUseCase.findProfessionalTypeId(id);
-	}	
+	}		
 	
 	@DeleteMapping("/{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)

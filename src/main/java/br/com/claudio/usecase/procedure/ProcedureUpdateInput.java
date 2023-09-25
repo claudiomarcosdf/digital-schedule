@@ -20,6 +20,8 @@ public class ProcedureUpdateInput {
 	
 	private BigDecimal price = BigDecimal.ZERO;
 	
+	private Boolean active;
+	
 	@NotNull
 	private ProfessionalType professionalType;		
 

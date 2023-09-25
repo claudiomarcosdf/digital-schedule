@@ -21,6 +21,8 @@ public class RequestProcedureUpdate {
 	
 	private BigDecimal price = BigDecimal.ZERO;
 	
+	private Boolean active;
+	
 	@NotNull
 	private ProfessionalType professionalType;
 

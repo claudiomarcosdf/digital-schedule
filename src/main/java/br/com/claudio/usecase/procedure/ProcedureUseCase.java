@@ -72,9 +72,12 @@ public class ProcedureUseCase {
 		return procedureGateway.searchByName(partialName);
 	}
 
-	public List<Procedure> findProfessionalTypeId(Long id) {
-		return procedureGateway.findByProfessionalTypeId(id);
+	public List<Procedure> findActiveProfessionalTypeId(Long id) {
+		return procedureGateway.findByActiveProfessionalTypeId(id);
 	}
 
+	public List<Procedure> findProfessionalTypeId(Long id) {
+		return procedureGateway.findByProfessionalTypeId(id);
+	}	
 
 }
