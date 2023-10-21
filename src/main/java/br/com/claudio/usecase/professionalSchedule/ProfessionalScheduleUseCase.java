@@ -25,7 +25,7 @@ public class ProfessionalScheduleUseCase {
 	
 	public ProfessionalSchedule createProfessionalSchedule(ProfessionalScheduleCreateInput input) {
 		if (input == null) throw new RequiredObjectIsNullException();
-		System.err.println("create");
+		//System.err.println("create");
 		
 		Professional professional = professionalGateway.findById(input.getProfessionalId())
 				.orElseThrow(() -> new ResourceNotFoundException("Profissional não encontrado!"));
@@ -46,7 +46,7 @@ public class ProfessionalScheduleUseCase {
 	public ProfessionalSchedule updateProfessionalSchedule(ProfessionalScheduleUpdateInput input) {
 		if (input == null) throw new RequiredObjectIsNullException();
 		
-		System.err.println("update");
+		//System.err.println("update");
 		
 		professionalGateway.findById(input.getProfessionalId())
 				.orElseThrow(() -> new ResourceNotFoundException("Profissional não encontrado!"));

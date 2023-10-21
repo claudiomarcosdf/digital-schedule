@@ -101,10 +101,10 @@ public class ScheduleUseCase {
 		
 		Schedule schedule = modelMapper().map(scheduleMapped, Schedule.class);
 		
-		System.err.println(schedule);
+		//System.err.println(schedule);
 		
-		return null;
-		//return scheduleGateway.update(schedule);
+		//return null;
+		return scheduleGateway.update(schedule);
 	}
 	
 	public Schedule findScheduleById(Long id) { 
