@@ -6,6 +6,7 @@ import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -54,6 +55,7 @@ public class ScheduleUseCase {
 		ProfessionalType professionalType = professionalTypeUseCase.findProfessionalTypeById(input.getProfessionalTypeId());
 
 		Professional professional = professionalUseCase.findProfessionalById(input.getProfessionalId());
+		
 		if (professional.hasSchedule()) checkIfProfessionalHasAvailableTime(professional, input.getStartDate());
 		else throw new InvalidOperationException("O profissional não possui agenda pré-definida!");
 		
@@ -180,11 +182,14 @@ public class ScheduleUseCase {
 		}
 		
 		if (hourMorningIni != null && hourMorningEnd != null) {
+
 			if (startTime.equals(hourMorningIni) 
 					|| (startTime.isAfter(hourMorningIni) && startTime.isBefore(hourMorningEnd)) ) {
 				valid = true;
 			}			
-		} else if (hourAfternoonIni != null && hourAfternoonEnd != null) {
+		} 
+		if (hourAfternoonIni != null && hourAfternoonEnd != null) {
+
 			if (startTime.equals(hourAfternoonIni) 
 					|| (startTime.isAfter(hourAfternoonIni) && startTime.isBefore(hourAfternoonEnd)) ) {
 				valid = true;
@@ -210,8 +215,22 @@ public class ScheduleUseCase {
 		scheduleGateway.update(schedule);		
 	}
 	
-	public List<ScheduleResponse> listActiveSchedules(Long professionalTypeId, Long professionalId) {
-		return toScheduleResponse(scheduleGateway.listActiveSchedules(professionalTypeId, professionalId));
+	public List<ScheduleResponse> listActiveSchedules(Long professionalTypeId, Long professionalId, String startDate, String endDate) {
+		if (professionalTypeId == null || professionalId == null || startDate == null || endDate == null) throw new InvalidOperationException("Parâmetros inválidos ou incompletos");
+		
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+		LocalDateTime startDateTime;
+		LocalDateTime endDateTime;
+		
+		try {
+			startDateTime = LocalDateTime.parse(startDate+" 00:00", formatter);
+			endDateTime = LocalDateTime.parse(endDate+" 23:59", formatter);
+		} catch (Exception e) {
+			throw new InvalidOperationException("O período informado é inválido!");
+		}
+		
+		
+		return toScheduleResponse(scheduleGateway.listActiveSchedules(professionalTypeId, professionalId, startDateTime, endDateTime));
 	}
 
 	private List<ScheduleResponse> toScheduleResponse(List<Schedule> listActiveSchedules) {

@@ -2,6 +2,7 @@ package br.com.claudio.infra.schedule.gateway;
 
 import static br.com.claudio.infra.config.mapper.MapperConfig.modelMapper;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -47,8 +48,9 @@ public class ScheduleDatabaseGateway implements ScheduleGateway {
 	}
 	
 	@Override
-	public List<Schedule> listActiveSchedules(Long professionalTypeId, Long professionalId) {
-		return toScheduleList(scheduleRepository.listActiveSchedules(professionalTypeId, professionalId));
+	public List<Schedule> listActiveSchedules(Long professionalTypeId, Long professionalId, LocalDateTime startDateTime, LocalDateTime endDateTime) {
+		
+		return toScheduleList(scheduleRepository.listActiveSchedules(professionalTypeId, professionalId, startDateTime, endDateTime));
 	}	
 	
 	private List<Schedule> toScheduleList(List<ScheduleSchema> listActiveSchedules) {

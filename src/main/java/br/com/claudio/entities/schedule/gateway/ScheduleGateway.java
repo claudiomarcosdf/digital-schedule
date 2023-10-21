@@ -1,5 +1,6 @@
 package br.com.claudio.entities.schedule.gateway;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -15,6 +16,6 @@ public interface ScheduleGateway {
 	
 	Optional<Schedule> findById(Long id);
 	
-	List<Schedule> listActiveSchedules(Long professionalTypeId, Long professionalId);
+	List<Schedule> listActiveSchedules(Long professionalTypeId, Long professionalId, LocalDateTime startDateTime, LocalDateTime endDateTime);
 
 }

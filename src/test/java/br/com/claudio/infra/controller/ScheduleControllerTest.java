@@ -1,16 +1,16 @@
 package br.com.claudio.infra.controller;
 
-import static br.com.claudio.common.ScheduleConstants.SCHEDULE1;
-import static br.com.claudio.common.ScheduleConstants.SCHEDULE_CREATE;
 import static br.com.claudio.common.ScheduleConstants.INVALID_SCHEDULE_CREATE;
+import static br.com.claudio.common.ScheduleConstants.SCHEDULE1;
 import static br.com.claudio.common.ScheduleConstants.SCHEDULELIST;
+import static br.com.claudio.common.ScheduleConstants.SCHEDULE_CREATE;
 import static org.hamcrest.Matchers.hasSize;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.when;
 import static org.mockito.Mockito.doThrow;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -73,9 +73,9 @@ public class ScheduleControllerTest {
 	
 	@Test
 	public void listActiveSchedule_WithProfessionalTypeIdAndProfessionalId_ReturnsScheduleResponse() throws Exception {
-		when(scheduleUseCase.listActiveSchedules(1L, 1L)).thenReturn(SCHEDULELIST);	
+		when(scheduleUseCase.listActiveSchedules(1L, 1L, "2023-09-30", "2023-09-31")).thenReturn(SCHEDULELIST);	
 		
-		mockMvc.perform(get("/schedules").param("professionalTypeId", "1").param("professionalId", "1"))		
+		mockMvc.perform(get("/schedules").param("professionalTypeId", "1").param("professionalId", "1").param("startDate", "2023-09-30").param("endDate", "2023-09-31"))		
 		.andDo(print())
 		.andExpect(status().isOk())
 		.andExpect(jsonPath("$", hasSize(2)));
@@ -83,7 +83,7 @@ public class ScheduleControllerTest {
 	
 	@Test
 	public void listActiveSchedule_WithUnexistingProfessionalTypeIdAndProfessionalId_ReturnsEmptyList() throws Exception {
-		when(scheduleUseCase.listActiveSchedules(99L, 99L)).thenReturn(Collections.emptyList());	
+		when(scheduleUseCase.listActiveSchedules(99L, 99L, "2023-09-30", "2023-09-31")).thenReturn(Collections.emptyList());	
 		
 		mockMvc.perform(get("/schedules").param("professionalTypeId", "99").param("professionalId", "99"))		
 		.andExpect(status().isOk())
@@ -92,7 +92,7 @@ public class ScheduleControllerTest {
 	
 	@Test
 	public void listActiveSchedule_WithAnyInvalidRequestParam_ReturnsBadRequest() throws Exception {
-		when(scheduleUseCase.listActiveSchedules(null, null)).thenThrow(MethodArgumentTypeMismatchException.class);	
+		when(scheduleUseCase.listActiveSchedules(null, null, null, null)).thenThrow(MethodArgumentTypeMismatchException.class);	
 		
 		mockMvc.perform(get("/schedules"))		
 		.andExpect(status().isBadRequest());
