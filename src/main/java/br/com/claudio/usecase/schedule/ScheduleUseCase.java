@@ -56,15 +56,19 @@ public class ScheduleUseCase {
 
 		Professional professional = professionalUseCase.findProfessionalById(input.getProfessionalId());
 		
-		if (professional.hasSchedule()) checkIfProfessionalHasAvailableTime(professional, input.getStartDate());
-		else throw new InvalidOperationException("O profissional não possui agenda pré-definida!");
-		
 		//podem vir nulos
 		Patient patient = null;
 		if (input.hasPatient()) patient = patientUseCase.findPatientById(input.getPatientId());
 		
 		Procedure procedure = null;
 		if (input.hasProcedure()) procedure = procedureUseCase.findProcedureById(input.getProcedureId());
+		
+		//Checa os horário do profissional apenas para agendamentos
+		if (patient != null && procedure != null) {
+			
+			if (professional.hasSchedule()) checkIfProfessionalHasAvailableTime(professional, input.getStartDate());
+			else throw new InvalidOperationException("O profissional não possui agenda pré-definida!");
+		}
 		
 		Schedule schedule = modelMapper().map(input, Schedule.class);
 		schedule.setProfessionalType(professionalType);
@@ -83,8 +87,6 @@ public class ScheduleUseCase {
 		//Não altera o professinalType 
 		
 		Professional professional = professionalUseCase.findProfessionalById(input.getProfessionalId());
-		if (professional.hasSchedule()) checkIfProfessionalHasAvailableTime(professional, input.getStartDate());
-		else throw new InvalidOperationException("O profissional não possui agenda pré-definida!");	
 		
 		Patient patient = null;
 		if (input.hasPatient()) patient = patientUseCase.findPatientById(input.getPatientId());
@@ -92,12 +94,23 @@ public class ScheduleUseCase {
 		Procedure procedure = null;
 		if (input.hasProcedure()) procedure = procedureUseCase.findProcedureById(input.getProcedureId());
 		
+		//Checa os horário do profissional apenas para agendamentos
+		if (patient != null && procedure != null) {
+			if (professional.hasSchedule()) checkIfProfessionalHasAvailableTime(professional, input.getStartDate());
+			else throw new InvalidOperationException("O profissional não possui agenda pré-definida!");	
+		}
+		
+		Boolean active = true;
+		if (input.getActive() == null) active = scheduleFinded.getActive();
+		else active = input.getActive();
+		
 		Schedule scheduleMapped = modelMapper().map(input, Schedule.class);
 		scheduleMapped.setProfessionalType(scheduleFinded.getProfessionalType());
 		scheduleMapped.setProfessional(professional);
 		scheduleMapped.setPatient(patient);
 		scheduleMapped.setProcedure(procedure);
 		scheduleMapped.setCreatedDate(scheduleFinded.getCreatedDate());
+		scheduleMapped.setActive(active);
 		
 		Schedule schedule = modelMapper().map(scheduleMapped, Schedule.class);
 		
@@ -241,12 +254,14 @@ public class ScheduleUseCase {
 			scheculeResponse.getProfessional().setPhone(schedule.getProfessional().getPerson().getPhone());
 			scheculeResponse.getProfessional().setPhone2(schedule.getProfessional().getPerson().getPhone2());
 			
-			scheculeResponse.getPatient().setFullName(schedule.getPatient().getPerson().getFullName());
-			scheculeResponse.getPatient().setBirthDay(schedule.getPatient().getPerson().getBirthDay());
-			scheculeResponse.getPatient().setGender(schedule.getPatient().getPerson().getGender());
-			scheculeResponse.getPatient().setCpf(schedule.getPatient().getPerson().getCpf());
-			scheculeResponse.getPatient().setPhone(schedule.getPatient().getPerson().getPhone());
-			scheculeResponse.getPatient().setPhone2(schedule.getPatient().getPerson().getPhone2());
+			if (scheculeResponse.getPatient() != null) {
+				scheculeResponse.getPatient().setFullName(schedule.getPatient().getPerson().getFullName());
+				scheculeResponse.getPatient().setBirthDay(schedule.getPatient().getPerson().getBirthDay());
+				scheculeResponse.getPatient().setGender(schedule.getPatient().getPerson().getGender());
+				scheculeResponse.getPatient().setCpf(schedule.getPatient().getPerson().getCpf());
+				scheculeResponse.getPatient().setPhone(schedule.getPatient().getPerson().getPhone());
+				scheculeResponse.getPatient().setPhone2(schedule.getPatient().getPerson().getPhone2());
+			}
 			
             listScheduleResponse.add(scheculeResponse);
 		}

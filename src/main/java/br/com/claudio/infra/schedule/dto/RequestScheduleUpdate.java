@@ -37,5 +37,7 @@ public class RequestScheduleUpdate {
 	
 	private Long procedureId;
 	
-	private String status;	
+	private String status;
+	
+	private Boolean active;
 }
