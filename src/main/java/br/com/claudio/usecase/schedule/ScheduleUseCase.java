@@ -70,6 +70,11 @@ public class ScheduleUseCase {
 			else throw new InvalidOperationException("O profissional não possui agenda pré-definida!");
 		}
 		
+		//Checa se existe afastamento do profissional por motivo de congresso, curso etc
+		if (scheduleGateway.existsEventsByDate(professionalType.getId(), professional.getId(), 
+				input.getStartDate())) 
+			throw new InvalidOperationException("Profissional indisponível para esta data!");
+		
 		Schedule schedule = modelMapper().map(input, Schedule.class);
 		schedule.setProfessionalType(professionalType);
 		schedule.setProfessional(professional);
@@ -99,6 +104,11 @@ public class ScheduleUseCase {
 			if (professional.hasSchedule()) checkIfProfessionalHasAvailableTime(professional, input.getStartDate());
 			else throw new InvalidOperationException("O profissional não possui agenda pré-definida!");	
 		}
+		
+		//Checa se existe afastamento do profissional por motivo de congresso, curso etc
+		if (scheduleGateway.existsEventsByDate(scheduleFinded.getProfessionalType().getId(), professional.getId(), 
+				input.getStartDate())) 
+			throw new InvalidOperationException("Profissional indisponível para esta data!");		
 		
 		Boolean active = true;
 		if (input.getActive() == null) active = scheduleFinded.getActive();

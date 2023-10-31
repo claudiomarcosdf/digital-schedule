@@ -17,5 +17,7 @@ public interface ScheduleGateway {
 	Optional<Schedule> findById(Long id);
 	
 	List<Schedule> listActiveSchedules(Long professionalTypeId, Long professionalId, LocalDateTime startDateTime, LocalDateTime endDateTime);
+	
+	Boolean existsEventsByDate(Long professionalTypeId, Long professionalId, LocalDateTime startDateTime);
 
 }

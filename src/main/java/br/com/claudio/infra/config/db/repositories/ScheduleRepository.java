@@ -18,4 +18,14 @@ public interface ScheduleRepository extends JpaRepository<ScheduleSchema, Long> 
 			  "ORDER BY schedule.startDate"
 	)	
 	List<ScheduleSchema> listActiveSchedules(Long professionalTypeId, Long professionalId, LocalDateTime startDate, LocalDateTime endDate);
+
+	@Query("SELECT schedule FROM ScheduleSchema schedule WHERE " +
+			  "schedule.active = true " +
+			  "AND schedule.patient.id is null "+
+			  "AND schedule.professionalType.id = :professionalTypeId "+
+			  "AND schedule.professional.id = :professionalId "+
+			  "AND :startDate BETWEEN schedule.startDate AND schedule.endDate "+
+			  "ORDER BY schedule.startDate"
+	)	
+	List<ScheduleSchema> findEventsByDates(Long professionalTypeId, Long professionalId, LocalDateTime startDate);
 }
