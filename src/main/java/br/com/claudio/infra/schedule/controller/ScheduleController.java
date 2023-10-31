@@ -2,7 +2,6 @@ package br.com.claudio.infra.schedule.controller;
 
 import static br.com.claudio.infra.config.mapper.MapperConfig.modelMapper;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
@@ -62,5 +61,12 @@ public class ScheduleController {
 		return scheduleUseCase.listActiveSchedules(professionalTypeId, professionalId, startDate, endDate);
 	}
 	
+	@PostMapping("/whatsapp")
+	@ResponseStatus(HttpStatus.OK)
+	public Boolean sendConfirmationMessages(@RequestParam String scheduleDate) {
+		//Envio da msg de confirmação pela data dos agendamentos
+		
+		return scheduleUseCase.sendConfirmationMessage(scheduleDate);
+	}
 
 }

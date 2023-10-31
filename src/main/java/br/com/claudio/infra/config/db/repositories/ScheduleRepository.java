@@ -8,6 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 
 import br.com.claudio.infra.config.db.schemas.ScheduleSchema;
 
+
 public interface ScheduleRepository extends JpaRepository<ScheduleSchema, Long> {
 	
 	@Query("SELECT schedule FROM ScheduleSchema schedule WHERE " +
@@ -28,4 +29,12 @@ public interface ScheduleRepository extends JpaRepository<ScheduleSchema, Long> 
 			  "ORDER BY schedule.startDate"
 	)	
 	List<ScheduleSchema> findEventsByDates(Long professionalTypeId, Long professionalId, LocalDateTime startDate);
+
+	@Query("SELECT schedule FROM ScheduleSchema schedule WHERE " +
+			  "schedule.active = true " +
+			  "AND schedule.status = br.com.claudio.infra.config.db.schemas.enums.StatusSchedule.AGENDADO "+
+			  "AND schedule.startDate BETWEEN :startDate AND :endDate "+
+			  "ORDER BY schedule.startDate"
+	)	
+	List<ScheduleSchema> getSchedulesByDate(LocalDateTime startDate, LocalDateTime endDate);
 }

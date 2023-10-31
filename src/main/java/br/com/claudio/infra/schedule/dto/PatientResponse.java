@@ -12,6 +12,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class PatientResponse {
     private Long id;
+    private String nickName;
     private String fullName;
     private LocalDate birthDay;
     private Gender gender;

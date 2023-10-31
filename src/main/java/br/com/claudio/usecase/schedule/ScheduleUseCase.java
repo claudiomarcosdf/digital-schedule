@@ -22,6 +22,7 @@ import br.com.claudio.entities.professionalSchedule.model.ProfessionalSchedule;
 import br.com.claudio.entities.professionaltype.model.ProfessionalType;
 import br.com.claudio.entities.schedule.gateway.ScheduleGateway;
 import br.com.claudio.entities.schedule.model.Schedule;
+import br.com.claudio.infra.config.whatsapp.WhatsappService;
 import br.com.claudio.infra.schedule.dto.ScheduleResponse;
 import br.com.claudio.usecase.patient.PatientUseCase;
 import br.com.claudio.usecase.procedure.ProcedureUseCase;
@@ -38,13 +39,17 @@ public class ScheduleUseCase {
 	private final PatientUseCase patientUseCase;
 	private final ProcedureUseCase procedureUseCase;
 	
+	private final WhatsappService whatsappService;
+	
 	public ScheduleUseCase(ScheduleGateway scheduleGateway, ProfessionalTypeUseCase professionalTypeUseCase,
-			ProfessionalUseCase professionalUseCase, PatientUseCase patientUseCase, ProcedureUseCase procedureUseCase) {
+			ProfessionalUseCase professionalUseCase, PatientUseCase patientUseCase, ProcedureUseCase procedureUseCase,
+			WhatsappService whatsappService) {
 		this.scheduleGateway = scheduleGateway;
 		this.professionalTypeUseCase = professionalTypeUseCase;
 		this.professionalUseCase = professionalUseCase;
 		this.patientUseCase = patientUseCase;
 		this.procedureUseCase = procedureUseCase;
+		this.whatsappService = whatsappService;
 	}
 
 	public Schedule createSchedule(ScheduleCreateInput input) {
@@ -81,7 +86,11 @@ public class ScheduleUseCase {
 		schedule.setPatient(patient);
 		schedule.setProcedure(procedure);
 		
-		return scheduleGateway.create(schedule);
+		Schedule scheduleCreated = scheduleGateway.create(schedule);
+
+		whatsappService.sendSingleMessage(scheduleCreated);
+		
+		return scheduleCreated;
 	}
 	
 	public Schedule updateSchedule(ScheduleUpdateInput input) {
@@ -123,11 +132,16 @@ public class ScheduleUseCase {
 		scheduleMapped.setActive(active);
 		
 		Schedule schedule = modelMapper().map(scheduleMapped, Schedule.class);
+
 		
-		//System.err.println(schedule);
+		Schedule scheduleUpdated = scheduleGateway.update(schedule);
 		
-		//return null;
-		return scheduleGateway.update(schedule);
+		//se agenda ativa e status agendado, pode haver alteração nas datas, logo reenviar msg;
+		if (scheduleUpdated.getStatus().name() == "AGENDADO" && scheduleUpdated.getActive() == true) {
+			whatsappService.sendSingleMessage(scheduleUpdated);
+		}
+		
+		return scheduleUpdated;
 	}
 	
 	public Schedule findScheduleById(Long id) { 
@@ -255,6 +269,24 @@ public class ScheduleUseCase {
 		
 		return toScheduleResponse(scheduleGateway.listActiveSchedules(professionalTypeId, professionalId, startDateTime, endDateTime));
 	}
+	
+	private List<ScheduleResponse> getActiveSchedulesByDate(String startDate) {
+		if (startDate == null) throw new InvalidOperationException("Data inválida!");
+		
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+		LocalDateTime startDateTime;
+		LocalDateTime endDateTime;
+		
+		try {
+			startDateTime = LocalDateTime.parse(startDate+" 00:00", formatter);
+			endDateTime = LocalDateTime.parse(startDate+" 23:59", formatter);
+		} catch (Exception e) {
+			throw new InvalidOperationException("Data de agendamento inválida!");
+		}
+		
+		
+		return toScheduleResponse(scheduleGateway.getSchedulesByDate(startDateTime, endDateTime));
+	}	
 
 	private List<ScheduleResponse> toScheduleResponse(List<Schedule> listActiveSchedules) {
 		List<ScheduleResponse> listScheduleResponse = new ArrayList<>();
@@ -265,6 +297,7 @@ public class ScheduleUseCase {
 			scheculeResponse.getProfessional().setPhone2(schedule.getProfessional().getPerson().getPhone2());
 			
 			if (scheculeResponse.getPatient() != null) {
+				scheculeResponse.getPatient().setNickName(schedule.getPatient().getNickName());
 				scheculeResponse.getPatient().setFullName(schedule.getPatient().getPerson().getFullName());
 				scheculeResponse.getPatient().setBirthDay(schedule.getPatient().getPerson().getBirthDay());
 				scheculeResponse.getPatient().setGender(schedule.getPatient().getPerson().getGender());
@@ -278,6 +311,16 @@ public class ScheduleUseCase {
 		
 		return listScheduleResponse;
 	}
-
-
+	
+	public Boolean sendConfirmationMessage(String date) {
+		
+		List<ScheduleResponse> listSchedule = getActiveSchedulesByDate(date);
+		
+		if (!listSchedule.isEmpty()) {
+			whatsappService.sendMultipleMessages(listSchedule);
+		}
+	
+		return true;
+	}	
+	
 }

@@ -58,6 +58,11 @@ public class ScheduleDatabaseGateway implements ScheduleGateway {
 
 		List<ScheduleSchema> result = scheduleRepository.findEventsByDates(professionalTypeId, professionalId, startDateTime);
         return !result.isEmpty();
+	}
+	
+	@Override
+	public List<Schedule> getSchedulesByDate(LocalDateTime startDateTime, LocalDateTime endDateTime) {
+		return toScheduleList(scheduleRepository.getSchedulesByDate(startDateTime, endDateTime));
 	}	
 	
 	private List<Schedule> toScheduleList(List<ScheduleSchema> listActiveSchedules) {
@@ -77,6 +82,5 @@ public class ScheduleDatabaseGateway implements ScheduleGateway {
 	private Schedule toSchedule(ScheduleSchema scheduleSchema) {
 		return modelMapper().map(scheduleSchema, Schedule.class);
 	}
-
 
 }

@@ -35,7 +35,7 @@ public class ScheduleConstants {
 	
 	private static final ProfessionalTypeResponse professionalType = new ProfessionalTypeResponse(1L) ;
 	private static final ProfessionalResponse professional = new ProfessionalResponse(1L, "Ju", 789542, 30, 0, "6199875632", null);
-	private static final PatientResponse patient = new PatientResponse(3L, "Frederico...", LocalDate.now(), Gender.MASCULINO, "60184574153", "61988563476", null);
+	private static final PatientResponse patient = new PatientResponse(3L, "Fred", "Frederico...", LocalDate.now(), Gender.MASCULINO, "60184574153", "61988563476", null);
 	private static final ProcedureResponse procedure = new ProcedureResponse(1L, "consulta medica", BigDecimal.ZERO);	
 	
 	

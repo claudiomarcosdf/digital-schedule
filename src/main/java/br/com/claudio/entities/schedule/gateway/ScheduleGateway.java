@@ -20,4 +20,6 @@ public interface ScheduleGateway {
 	
 	Boolean existsEventsByDate(Long professionalTypeId, Long professionalId, LocalDateTime startDateTime);
 
+	List<Schedule> getSchedulesByDate(LocalDateTime startDateTime, LocalDateTime endDateTime);
+
 }

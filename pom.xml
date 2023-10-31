@@ -50,11 +50,16 @@
 	  <groupId>org.modelmapper</groupId>
 	  <artifactId>modelmapper</artifactId>
 	  <version>3.0.0</version>
-	</dependency>    
+	</dependency>  
 	<dependency>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-configuration-processor</artifactId>
-		<optional>true</optional>
+	  <groupId>org.seleniumhq.selenium</groupId>
+	  <artifactId>selenium-java</artifactId>
+	  <version>4.8.3</version>
+    </dependency>
+	<dependency>
+	  <groupId>org.springframework.boot</groupId>
+	  <artifactId>spring-boot-configuration-processor</artifactId>
+	  <optional>true</optional>
 	</dependency>    
     <dependency>
       <groupId>com.h2database</groupId>
