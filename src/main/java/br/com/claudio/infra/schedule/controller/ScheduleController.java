@@ -61,12 +61,4 @@ public class ScheduleController {
 		return scheduleUseCase.listActiveSchedules(professionalTypeId, professionalId, startDate, endDate);
 	}
 	
-	@PostMapping("/whatsapp")
-	@ResponseStatus(HttpStatus.OK)
-	public Boolean sendConfirmationMessages(@RequestParam String scheduleDate) {
-		//Envio da msg de confirmação pela data dos agendamentos
-		
-		return scheduleUseCase.sendConfirmationMessage(scheduleDate);
-	}
-
 }

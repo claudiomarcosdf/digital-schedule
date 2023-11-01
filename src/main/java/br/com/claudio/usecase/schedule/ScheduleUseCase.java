@@ -22,7 +22,6 @@ import br.com.claudio.entities.professionalSchedule.model.ProfessionalSchedule;
 import br.com.claudio.entities.professionaltype.model.ProfessionalType;
 import br.com.claudio.entities.schedule.gateway.ScheduleGateway;
 import br.com.claudio.entities.schedule.model.Schedule;
-import br.com.claudio.infra.config.whatsapp.WhatsappService;
 import br.com.claudio.infra.schedule.dto.ScheduleResponse;
 import br.com.claudio.usecase.patient.PatientUseCase;
 import br.com.claudio.usecase.procedure.ProcedureUseCase;
@@ -39,17 +38,13 @@ public class ScheduleUseCase {
 	private final PatientUseCase patientUseCase;
 	private final ProcedureUseCase procedureUseCase;
 	
-	private final WhatsappService whatsappService;
-	
 	public ScheduleUseCase(ScheduleGateway scheduleGateway, ProfessionalTypeUseCase professionalTypeUseCase,
-			ProfessionalUseCase professionalUseCase, PatientUseCase patientUseCase, ProcedureUseCase procedureUseCase,
-			WhatsappService whatsappService) {
+			ProfessionalUseCase professionalUseCase, PatientUseCase patientUseCase, ProcedureUseCase procedureUseCase) {
 		this.scheduleGateway = scheduleGateway;
 		this.professionalTypeUseCase = professionalTypeUseCase;
 		this.professionalUseCase = professionalUseCase;
 		this.patientUseCase = patientUseCase;
 		this.procedureUseCase = procedureUseCase;
-		this.whatsappService = whatsappService;
 	}
 
 	public Schedule createSchedule(ScheduleCreateInput input) {
@@ -87,9 +82,6 @@ public class ScheduleUseCase {
 		schedule.setProcedure(procedure);
 		
 		Schedule scheduleCreated = scheduleGateway.create(schedule);
-
-		whatsappService.sendSingleMessage(scheduleCreated);
-		
 		return scheduleCreated;
 	}
 	
@@ -135,12 +127,6 @@ public class ScheduleUseCase {
 
 		
 		Schedule scheduleUpdated = scheduleGateway.update(schedule);
-		
-		//se agenda ativa e status agendado, pode haver alteração nas datas, logo reenviar msg;
-		if (scheduleUpdated.getStatus().name() == "AGENDADO" && scheduleUpdated.getActive() == true) {
-			whatsappService.sendSingleMessage(scheduleUpdated);
-		}
-		
 		return scheduleUpdated;
 	}
 	
@@ -311,16 +297,5 @@ public class ScheduleUseCase {
 		
 		return listScheduleResponse;
 	}
-	
-	public Boolean sendConfirmationMessage(String date) {
-		
-		List<ScheduleResponse> listSchedule = getActiveSchedulesByDate(date);
-		
-		if (!listSchedule.isEmpty()) {
-			whatsappService.sendMultipleMessages(listSchedule);
-		}
-	
-		return true;
-	}	
 	
 }
