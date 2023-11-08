@@ -10,8 +10,13 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import br.com.claudio.DigitalScheduleApplication;
 import br.com.claudio.entities.exception.InvalidOperationException;
 import br.com.claudio.entities.exception.RequiredObjectIsNullException;
 import br.com.claudio.entities.exception.ResourceNotFoundException;
@@ -22,6 +27,9 @@ import br.com.claudio.entities.professionalSchedule.model.ProfessionalSchedule;
 import br.com.claudio.entities.professionaltype.model.ProfessionalType;
 import br.com.claudio.entities.schedule.gateway.ScheduleGateway;
 import br.com.claudio.entities.schedule.model.Schedule;
+import br.com.claudio.infra.config.whatsapp.WhatsappService;
+import br.com.claudio.infra.config.whatsapp.config.WhatsappProperties;
+import br.com.claudio.infra.config.whatsapp.dto.instance.InstanceInfoResponse;
 import br.com.claudio.infra.schedule.dto.ScheduleResponse;
 import br.com.claudio.usecase.patient.PatientUseCase;
 import br.com.claudio.usecase.procedure.ProcedureUseCase;
@@ -31,6 +39,8 @@ import br.com.claudio.usecase.professionaltype.ProfessionalTypeUseCase;
 @Service
 public class ScheduleUseCase {
 	
+	private static Logger logger = LoggerFactory.getLogger(DigitalScheduleApplication.class);
+	
 	private final ScheduleGateway scheduleGateway;
 	
 	private final ProfessionalTypeUseCase professionalTypeUseCase;
@@ -38,13 +48,18 @@ public class ScheduleUseCase {
 	private final PatientUseCase patientUseCase;
 	private final ProcedureUseCase procedureUseCase;
 	
+	private final WhatsappProperties whatsappProperties;
+	private final WhatsappService whatsappService;
+	
 	public ScheduleUseCase(ScheduleGateway scheduleGateway, ProfessionalTypeUseCase professionalTypeUseCase,
-			ProfessionalUseCase professionalUseCase, PatientUseCase patientUseCase, ProcedureUseCase procedureUseCase) {
+			ProfessionalUseCase professionalUseCase, PatientUseCase patientUseCase, ProcedureUseCase procedureUseCase, WhatsappService whatsappService, WhatsappProperties whatsappProperties) {
 		this.scheduleGateway = scheduleGateway;
 		this.professionalTypeUseCase = professionalTypeUseCase;
 		this.professionalUseCase = professionalUseCase;
 		this.patientUseCase = patientUseCase;
 		this.procedureUseCase = procedureUseCase;
+		this.whatsappProperties = whatsappProperties;
+		this.whatsappService = whatsappService;
 	}
 
 	public Schedule createSchedule(ScheduleCreateInput input) {
@@ -82,6 +97,8 @@ public class ScheduleUseCase {
 		schedule.setProcedure(procedure);
 		
 		Schedule scheduleCreated = scheduleGateway.create(schedule);
+		sendScheduleMessage(scheduleCreated);
+		
 		return scheduleCreated;
 	}
 	
@@ -127,6 +144,12 @@ public class ScheduleUseCase {
 
 		
 		Schedule scheduleUpdated = scheduleGateway.update(schedule);
+		
+		//se agenda ativa e status agendado, pode haver alteração nas datas, logo reenviar msg;
+		if (scheduleUpdated.getStatus().name() == "AGENDADO" && scheduleUpdated.getActive() == true) {
+			whatsappService.sendSingleMessage(scheduleUpdated);
+		}
+		
 		return scheduleUpdated;
 	}
 	
@@ -297,5 +320,41 @@ public class ScheduleUseCase {
 		
 		return listScheduleResponse;
 	}
+	
+	/**
+	 * SEND AN SCHEDULE MESSAGE VIA WHATSAPP
+	 * @param schedule
+	 */
+	
+	private void sendScheduleMessage(Schedule schedule) {
+		if (!whatsappProperties.useWhatsapp()) return;
+				
+		try {
+			InstanceInfoResponse instanceInfo = whatsappService.getInstanceInfo();
+		} catch (Exception e) {
+			logger.error("Whatsapp não iniciado - instância não criada");
+		}
+		
+		whatsappService.sendSingleMessage(schedule);
+	}
+	
+	/**
+	 * SEND SCHEDULE CONFIRMATION MESSAGES VIA WHATSAPP
+	 * @param schedule
+	 */	
+	
+	public Boolean sendConfirmationMessage(String date) {
+		Boolean error = false;
+		
+		if (whatsappProperties.useWhatsapp()) {
+			List<ScheduleResponse> listSchedule = getActiveSchedulesByDate(date);
+			
+			if (!listSchedule.isEmpty()) {
+				error = whatsappService.sendMultipleMessages(listSchedule);
+			}
+		}
+		
+		return error;
+	}	
 	
 }

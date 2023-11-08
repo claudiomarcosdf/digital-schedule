@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.claudio.entities.schedule.model.Schedule;
+import br.com.claudio.infra.config.whatsapp.WhatsappService;
+import br.com.claudio.infra.config.whatsapp.messages.MessageService;
 import br.com.claudio.infra.schedule.dto.RequestScheduleCreate;
 import br.com.claudio.infra.schedule.dto.RequestScheduleUpdate;
 import br.com.claudio.infra.schedule.dto.ScheduleResponse;
@@ -30,7 +32,7 @@ import jakarta.validation.Valid;
 public class ScheduleController {
 	
 	private final ScheduleUseCase scheduleUseCase;
-
+	
 	public ScheduleController(ScheduleUseCase scheduleUseCase) {
 		this.scheduleUseCase = scheduleUseCase;
 	}
@@ -57,8 +59,16 @@ public class ScheduleController {
 	@GetMapping
 	@ResponseStatus(HttpStatus.OK) 
 	public List<ScheduleResponse> listSchedule(@RequestParam Long professionalTypeId, Long professionalId, String startDate, String endDate) {
-
+	
 		return scheduleUseCase.listActiveSchedules(professionalTypeId, professionalId, startDate, endDate);
 	}
+	
+	@PostMapping("/sendconfirmation")
+	public String sendConfirmationMessage(@RequestParam String scheduleDate) {
+		
+		Boolean error = scheduleUseCase.sendConfirmationMessage(scheduleDate);
+		
+		return error ? "Erro ao enviar mensagens de confirmação" : "ok";
+	}	
 	
 }
