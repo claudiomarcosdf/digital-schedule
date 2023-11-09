@@ -17,8 +17,6 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.claudio.entities.schedule.model.Schedule;
-import br.com.claudio.infra.config.whatsapp.WhatsappService;
-import br.com.claudio.infra.config.whatsapp.messages.MessageService;
 import br.com.claudio.infra.schedule.dto.RequestScheduleCreate;
 import br.com.claudio.infra.schedule.dto.RequestScheduleUpdate;
 import br.com.claudio.infra.schedule.dto.ScheduleResponse;

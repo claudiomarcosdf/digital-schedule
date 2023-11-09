@@ -35,3 +35,82 @@
 2023-11-08T08:54:32.091-03:00  INFO 10388 --- [RMI TCP Connection(9)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2023-11-08T08:54:32.094-03:00  INFO 10388 --- [RMI TCP Connection(9)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2023-11-08T08:54:32.097-03:00  INFO 10388 --- [RMI TCP Connection(9)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-11-08T09:00:38.754-03:00  INFO 2860 --- [main] b.c.c.i.c.PatientControllerTest          : Starting PatientControllerTest using Java 17.0.4.1 with PID 2860 (started by claudio-marcos in C:\dev\spring-projects\agenda-digital\digital-schedule)
+2023-11-08T09:00:38.756-03:00  INFO 2860 --- [main] b.c.c.i.c.PatientControllerTest          : No active profile set, falling back to 1 default profile: "default"
+2023-11-08T09:00:42.000-03:00  INFO 2860 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2023-11-08T09:00:42.001-03:00  INFO 2860 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2023-11-08T09:00:42.002-03:00  INFO 2860 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2023-11-08T09:00:42.030-03:00  INFO 2860 --- [main] b.c.c.i.c.PatientControllerTest          : Started PatientControllerTest in 3.765 seconds (process running for 5.409)
+2023-11-08T09:00:42.643-03:00  INFO 2860 --- [main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [br.com.claudio.infra.controller.PersonTypeControllerTest]: PersonTypeControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2023-11-08T09:00:42.652-03:00  INFO 2860 --- [main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration br.com.claudio.DigitalScheduleApplication for test class br.com.claudio.infra.controller.PersonTypeControllerTest
+2023-11-08T09:00:42.688-03:00  INFO 2860 --- [main] b.c.c.i.c.PersonTypeControllerTest       : Starting PersonTypeControllerTest using Java 17.0.4.1 with PID 2860 (started by claudio-marcos in C:\dev\spring-projects\agenda-digital\digital-schedule)
+2023-11-08T09:00:42.689-03:00  INFO 2860 --- [main] b.c.c.i.c.PersonTypeControllerTest       : No active profile set, falling back to 1 default profile: "default"
+2023-11-08T09:00:43.013-03:00  INFO 2860 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2023-11-08T09:00:43.014-03:00  INFO 2860 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2023-11-08T09:00:43.014-03:00  INFO 2860 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2023-11-08T09:00:43.019-03:00  INFO 2860 --- [main] b.c.c.i.c.PersonTypeControllerTest       : Started PersonTypeControllerTest in 0.364 seconds (process running for 6.398)
+2023-11-08T09:00:43.113-03:00  INFO 2860 --- [main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [br.com.claudio.infra.controller.ProcedureControllerTest]: ProcedureControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2023-11-08T09:00:43.118-03:00  INFO 2860 --- [main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration br.com.claudio.DigitalScheduleApplication for test class br.com.claudio.infra.controller.ProcedureControllerTest
+2023-11-08T09:00:43.148-03:00  INFO 2860 --- [main] b.c.c.i.c.ProcedureControllerTest        : Starting ProcedureControllerTest using Java 17.0.4.1 with PID 2860 (started by claudio-marcos in C:\dev\spring-projects\agenda-digital\digital-schedule)
+2023-11-08T09:00:43.149-03:00  INFO 2860 --- [main] b.c.c.i.c.ProcedureControllerTest        : No active profile set, falling back to 1 default profile: "default"
+2023-11-08T09:00:43.419-03:00  INFO 2860 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2023-11-08T09:00:43.420-03:00  INFO 2860 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2023-11-08T09:00:43.420-03:00  INFO 2860 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2023-11-08T09:00:43.424-03:00  INFO 2860 --- [main] b.c.c.i.c.ProcedureControllerTest        : Started ProcedureControllerTest in 0.303 seconds (process running for 6.804)
+2023-11-08T09:00:43.528-03:00  INFO 2860 --- [main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [br.com.claudio.infra.controller.ProfessionalControllerTest]: ProfessionalControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2023-11-08T09:00:43.534-03:00  INFO 2860 --- [main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration br.com.claudio.DigitalScheduleApplication for test class br.com.claudio.infra.controller.ProfessionalControllerTest
+2023-11-08T09:00:43.564-03:00  INFO 2860 --- [main] b.c.c.i.c.ProfessionalControllerTest     : Starting ProfessionalControllerTest using Java 17.0.4.1 with PID 2860 (started by claudio-marcos in C:\dev\spring-projects\agenda-digital\digital-schedule)
+2023-11-08T09:00:43.564-03:00  INFO 2860 --- [main] b.c.c.i.c.ProfessionalControllerTest     : No active profile set, falling back to 1 default profile: "default"
+2023-11-08T09:00:43.805-03:00  INFO 2860 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2023-11-08T09:00:43.805-03:00  INFO 2860 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2023-11-08T09:00:43.806-03:00  INFO 2860 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2023-11-08T09:00:43.811-03:00  INFO 2860 --- [main] b.c.c.i.c.ProfessionalControllerTest     : Started ProfessionalControllerTest in 0.272 seconds (process running for 7.19)
+2023-11-08T09:00:43.921-03:00  INFO 2860 --- [main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [br.com.claudio.infra.controller.ProfessionalScheduleControllerTest]: ProfessionalScheduleControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2023-11-08T09:00:43.926-03:00  INFO 2860 --- [main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration br.com.claudio.DigitalScheduleApplication for test class br.com.claudio.infra.controller.ProfessionalScheduleControllerTest
+2023-11-08T09:00:43.949-03:00  INFO 2860 --- [main] c.i.c.ProfessionalScheduleControllerTest : Starting ProfessionalScheduleControllerTest using Java 17.0.4.1 with PID 2860 (started by claudio-marcos in C:\dev\spring-projects\agenda-digital\digital-schedule)
+2023-11-08T09:00:43.949-03:00  INFO 2860 --- [main] c.i.c.ProfessionalScheduleControllerTest : No active profile set, falling back to 1 default profile: "default"
+2023-11-08T09:00:44.174-03:00  INFO 2860 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2023-11-08T09:00:44.174-03:00  INFO 2860 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2023-11-08T09:00:44.175-03:00  INFO 2860 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2023-11-08T09:00:44.179-03:00  INFO 2860 --- [main] c.i.c.ProfessionalScheduleControllerTest : Started ProfessionalScheduleControllerTest in 0.25 seconds (process running for 7.558)
+2023-11-08T09:00:44.219-03:00  INFO 2860 --- [main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [br.com.claudio.infra.controller.ProfessionalTypeControllerTest]: ProfessionalTypeControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2023-11-08T09:00:44.227-03:00  INFO 2860 --- [main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration br.com.claudio.DigitalScheduleApplication for test class br.com.claudio.infra.controller.ProfessionalTypeControllerTest
+2023-11-08T09:00:44.254-03:00  INFO 2860 --- [main] b.c.c.i.c.ProfessionalTypeControllerTest : Starting ProfessionalTypeControllerTest using Java 17.0.4.1 with PID 2860 (started by claudio-marcos in C:\dev\spring-projects\agenda-digital\digital-schedule)
+2023-11-08T09:00:44.254-03:00  INFO 2860 --- [main] b.c.c.i.c.ProfessionalTypeControllerTest : No active profile set, falling back to 1 default profile: "default"
+2023-11-08T09:00:44.489-03:00  INFO 2860 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2023-11-08T09:00:44.489-03:00  INFO 2860 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2023-11-08T09:00:44.490-03:00  INFO 2860 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2023-11-08T09:00:44.494-03:00  INFO 2860 --- [main] b.c.c.i.c.ProfessionalTypeControllerTest : Started ProfessionalTypeControllerTest in 0.264 seconds (process running for 7.874)
+2023-11-08T09:00:44.576-03:00  INFO 2860 --- [main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [br.com.claudio.infra.controller.ScheduleControllerTest]: ScheduleControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2023-11-08T09:00:44.580-03:00  INFO 2860 --- [main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration br.com.claudio.DigitalScheduleApplication for test class br.com.claudio.infra.controller.ScheduleControllerTest
+2023-11-08T09:00:44.603-03:00  INFO 2860 --- [main] b.c.c.i.c.ScheduleControllerTest         : Starting ScheduleControllerTest using Java 17.0.4.1 with PID 2860 (started by claudio-marcos in C:\dev\spring-projects\agenda-digital\digital-schedule)
+2023-11-08T09:00:44.604-03:00  INFO 2860 --- [main] b.c.c.i.c.ScheduleControllerTest         : No active profile set, falling back to 1 default profile: "default"
+2023-11-08T09:00:44.834-03:00  INFO 2860 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2023-11-08T09:00:44.835-03:00  INFO 2860 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2023-11-08T09:00:44.835-03:00  INFO 2860 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2023-11-08T09:00:44.839-03:00  INFO 2860 --- [main] b.c.c.i.c.ScheduleControllerTest         : Started ScheduleControllerTest in 0.255 seconds (process running for 8.218)
+2023-11-08T09:00:44.925-03:00  INFO 2860 --- [main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [br.com.claudio.repository.PersonTypeRepositoryTest]: PersonTypeRepositoryTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2023-11-08T09:00:44.945-03:00  INFO 2860 --- [main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration br.com.claudio.DigitalScheduleApplication for test class br.com.claudio.repository.PersonTypeRepositoryTest
+2023-11-08T09:00:44.972-03:00  INFO 2860 --- [main] b.c.c.r.PersonTypeRepositoryTest         : Starting PersonTypeRepositoryTest using Java 17.0.4.1 with PID 2860 (started by claudio-marcos in C:\dev\spring-projects\agenda-digital\digital-schedule)
+2023-11-08T09:00:44.973-03:00  INFO 2860 --- [main] b.c.c.r.PersonTypeRepositoryTest         : No active profile set, falling back to 1 default profile: "default"
+2023-11-08T09:00:45.141-03:00  INFO 2860 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-11-08T09:00:45.235-03:00  INFO 2860 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 85 ms. Found 8 JPA repository interfaces.
+2023-11-08T09:00:45.283-03:00  INFO 2860 --- [main] beddedDataSourceBeanFactoryPostProcessor : Replacing 'dataSource' DataSource bean with embedded version
+2023-11-08T09:00:45.343-03:00  INFO 2860 --- [main] o.s.j.d.e.EmbeddedDatabaseFactory        : Starting embedded database: url='jdbc:h2:mem:60b4ef4f-9d41-4adf-a444-cf9586217da3;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2023-11-08T09:00:45.683-03:00  INFO 2860 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-11-08T09:00:45.755-03:00  INFO 2860 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.7.Final
+2023-11-08T09:00:45.758-03:00  INFO 2860 --- [main] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
+2023-11-08T09:00:45.924-03:00  INFO 2860 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-11-08T09:00:45.941-03:00  INFO 2860 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-11-08T09:00:46.384-03:00  INFO 2860 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-11-08T09:00:47.184-03:00  INFO 2860 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-11-08T09:00:47.274-03:00  INFO 2860 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-11-08T09:00:47.672-03:00  INFO 2860 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2023-11-08T09:00:48.309-03:00  INFO 2860 --- [main] b.c.c.r.PersonTypeRepositoryTest         : Started PersonTypeRepositoryTest in 3.362 seconds (process running for 11.689)
+2023-11-08T09:00:48.484-03:00  WARN 2860 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 23505, SQLState: 23505
+2023-11-08T09:00:48.484-03:00 ERROR 2860 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : Unique index or primary key violation: "PUBLIC.UK_24WS1YPB46T780ETOXSASGAOE_INDEX_A ON PUBLIC.PERSON_TYPES(NAME NULLS FIRST) VALUES ( /* 1 */ 'name' )"; SQL statement:
+insert into person_types (name,id) values (?,default) [23505-214]
+2023-11-08T09:00:48.573-03:00  WARN 2860 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 22001, SQLState: 22001
+2023-11-08T09:00:48.574-03:00 ERROR 2860 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : Value too long for column "NAME CHARACTER VARYING(30)": "'xxxxxxxxxxxxxx xxxxxxxxxxxxxxxx' (31)"; SQL statement:
+insert into person_types (name,id) values (?,default) [22001-214]
+2023-11-08T09:00:48.722-03:00  INFO 2860 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
