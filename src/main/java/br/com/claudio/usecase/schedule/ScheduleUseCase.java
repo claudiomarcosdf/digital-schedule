@@ -351,7 +351,7 @@ public class ScheduleUseCase {
 			
 			if (!listSchedule.isEmpty()) {
 				error = whatsappService.sendMultipleMessages(listSchedule);
-			}
+			} else error = true; //se lista vazia, msg não enviadas
 		}
 		
 		return error;

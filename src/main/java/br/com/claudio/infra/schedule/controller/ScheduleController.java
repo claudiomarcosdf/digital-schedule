@@ -5,6 +5,7 @@ import static br.com.claudio.infra.config.mapper.MapperConfig.modelMapper;
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -62,11 +63,13 @@ public class ScheduleController {
 	}
 	
 	@PostMapping("/sendconfirmation")
-	public String sendConfirmationMessage(@RequestParam String scheduleDate) {
+	public ResponseEntity<String> sendConfirmationMessage(@RequestParam String scheduleDate) {
 		
 		Boolean error = scheduleUseCase.sendConfirmationMessage(scheduleDate);
 		
-		return error ? "Erro ao enviar mensagens de confirmação" : "ok";
+		return error 
+				? new ResponseEntity<>("Erro ao enviar mensagens de confirmação", HttpStatus.BAD_REQUEST) 
+				: ResponseEntity.ok().body("OK");
 	}	
 	
 }
