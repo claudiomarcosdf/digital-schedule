@@ -27,6 +27,7 @@ import br.com.claudio.entities.professionalSchedule.model.ProfessionalSchedule;
 import br.com.claudio.entities.professionaltype.model.ProfessionalType;
 import br.com.claudio.entities.schedule.gateway.ScheduleGateway;
 import br.com.claudio.entities.schedule.model.Schedule;
+import br.com.claudio.infra.config.db.schemas.enums.StatusSchedule;
 import br.com.claudio.infra.config.whatsapp.WhatsappService;
 import br.com.claudio.infra.config.whatsapp.config.WhatsappProperties;
 import br.com.claudio.infra.config.whatsapp.dto.instance.InstanceInfoResponse;
@@ -95,6 +96,7 @@ public class ScheduleUseCase {
 		schedule.setProfessional(professional);
 		schedule.setPatient(patient);
 		schedule.setProcedure(procedure);
+		if (patient == null) schedule.setStatus(StatusSchedule.EVENTO);
 		
 		Schedule scheduleCreated = scheduleGateway.create(schedule);
 		sendScheduleMessage(scheduleCreated);
@@ -146,7 +148,8 @@ public class ScheduleUseCase {
 		Schedule scheduleUpdated = scheduleGateway.update(schedule);
 		
 		//se agenda ativa e status agendado, pode haver alteração nas datas, logo reenviar msg;
-		if (scheduleUpdated.getStatus().name() == "AGENDADO" && scheduleUpdated.getActive() == true) {
+		if ((scheduleUpdated.getStatus().name() == "AGENDADO" || scheduleUpdated.getStatus().name() == "EVENTO") 
+				&& scheduleUpdated.getActive() == true) {
 			whatsappService.sendSingleMessage(scheduleUpdated);
 		}
 		
@@ -331,11 +334,12 @@ public class ScheduleUseCase {
 				
 		try {
 			InstanceInfoResponse instanceInfo = whatsappService.getInstanceInfo();
+			//Só envia mensagem caso haja paciente (não seja evento)
+			if (schedule.getPatient() != null) whatsappService.sendSingleMessage(schedule);
 		} catch (Exception e) {
 			logger.error("Whatsapp não iniciado - instância não criada");
 		}
 		
-		whatsappService.sendSingleMessage(schedule);
 	}
 	
 	/**

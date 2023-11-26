@@ -1,265 +1,643 @@
-2023-11-14T10:21:27.862-03:00  INFO 11164 --- [restartedMain] b.c.claudio.DigitalScheduleApplication   : Starting DigitalScheduleApplication using Java 17.0.4.1 with PID 11164 (C:\dev\spring-projects\agenda-digital\digital-schedule\target\classes started by claudio-marcos in C:\dev\spring-projects\agenda-digital\digital-schedule)
-2023-11-14T10:21:27.868-03:00  INFO 11164 --- [restartedMain] b.c.claudio.DigitalScheduleApplication   : No active profile set, falling back to 1 default profile: "default"
-2023-11-14T10:21:27.933-03:00  INFO 11164 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2023-11-14T10:21:27.933-03:00  INFO 11164 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2023-11-14T10:21:28.766-03:00  INFO 11164 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-11-14T10:21:28.872-03:00  INFO 11164 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 98 ms. Found 8 JPA repository interfaces.
-2023-11-14T10:21:29.495-03:00  INFO 11164 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2023-11-14T10:21:29.506-03:00  INFO 11164 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2023-11-14T10:21:29.506-03:00  INFO 11164 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.12]
-2023-11-14T10:21:29.581-03:00  INFO 11164 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
-2023-11-14T10:21:29.582-03:00  INFO 11164 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1648 ms
-2023-11-14T10:21:29.618-03:00  INFO 11164 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2023-11-14T10:21:29.827-03:00  INFO 11164 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@481a7ec9
-2023-11-14T10:21:29.829-03:00  INFO 11164 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2023-11-14T10:21:29.840-03:00  INFO 11164 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://localhost:5432/scheduledb'
-2023-11-14T10:21:29.989-03:00  INFO 11164 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-11-14T10:21:30.049-03:00  INFO 11164 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.7.Final
-2023-11-14T10:21:30.052-03:00  INFO 11164 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
-2023-11-14T10:21:30.218-03:00  INFO 11164 --- [restartedMain] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
-2023-11-14T10:21:30.366-03:00  INFO 11164 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2023-11-14T10:21:31.005-03:00  INFO 11164 --- [restartedMain] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
-2023-11-14T10:21:31.903-03:00  INFO 11164 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-11-14T10:21:32.502-03:00  INFO 11164 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-11-14T10:21:32.814-03:00  INFO 11164 --- [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
-2023-11-14T10:21:33.502-03:00  WARN 11164 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-11-14T10:21:33.839-03:00  INFO 11164 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2023-11-14T10:21:33.862-03:00  WARN 11164 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
-2023-11-14T10:21:33.865-03:00  INFO 11164 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2023-11-14T10:21:33.868-03:00  INFO 11164 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2023-11-14T10:21:33.871-03:00  INFO 11164 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2023-11-14T10:21:33.874-03:00  INFO 11164 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
-2023-11-14T10:21:33.890-03:00  INFO 11164 --- [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
+2023-11-26T08:49:54.335-03:00  INFO 3132 --- [restartedMain] b.c.claudio.DigitalScheduleApplication   : Starting DigitalScheduleApplication using Java 17.0.4.1 with PID 3132 (C:\dev\spring-projects\agenda-digital\digital-schedule\target\classes started by claudio-marcos in C:\dev\spring-projects\agenda-digital\digital-schedule)
+2023-11-26T08:49:54.342-03:00  INFO 3132 --- [restartedMain] b.c.claudio.DigitalScheduleApplication   : No active profile set, falling back to 1 default profile: "default"
+2023-11-26T08:49:54.440-03:00  INFO 3132 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-11-26T08:49:54.441-03:00  INFO 3132 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-11-26T08:49:57.811-03:00  INFO 3132 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-11-26T08:49:58.009-03:00  INFO 3132 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 117 ms. Found 9 JPA repository interfaces.
+2023-11-26T08:49:58.737-03:00  INFO 3132 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-11-26T08:49:58.747-03:00  INFO 3132 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-11-26T08:49:58.747-03:00  INFO 3132 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.12]
+2023-11-26T08:49:58.827-03:00  INFO 3132 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+2023-11-26T08:49:58.827-03:00  INFO 3132 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4377 ms
+2023-11-26T08:49:58.964-03:00  INFO 3132 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-11-26T08:49:59.037-03:00  INFO 3132 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.7.Final
+2023-11-26T08:49:59.041-03:00  INFO 3132 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
+2023-11-26T08:49:59.194-03:00  INFO 3132 --- [restartedMain] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-11-26T08:49:59.343-03:00  INFO 3132 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-11-26T08:49:59.365-03:00  INFO 3132 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-11-26T08:49:59.598-03:00  INFO 3132 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@67067d9c
+2023-11-26T08:49:59.601-03:00  INFO 3132 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-11-26T08:50:00.261-03:00  INFO 3132 --- [restartedMain] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-11-26T08:50:01.350-03:00  INFO 3132 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-11-26T08:50:02.127-03:00  INFO 3132 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-11-26T08:50:02.590-03:00  INFO 3132 --- [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2023-11-26T08:50:03.271-03:00  WARN 3132 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-11-26T08:50:03.537-03:00  INFO 3132 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1bd33925, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@254a0178, org.springframework.security.web.context.SecurityContextHolderFilter@12fa333b, org.springframework.security.web.header.HeaderWriterFilter@c3075fc, org.springframework.security.web.authentication.logout.LogoutFilter@6623f7a7, br.com.claudio.infra.config.security.SecurityFilter@37a2a32d, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@16b09b17, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@63add97b, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3422108, org.springframework.security.web.session.SessionManagementFilter@295f11a8, org.springframework.security.web.access.ExceptionTranslationFilter@2138d08c, org.springframework.security.web.access.intercept.AuthorizationFilter@2802d4ab]
+2023-11-26T08:50:03.755-03:00  INFO 3132 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-11-26T08:50:03.800-03:00  INFO 3132 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/api'
+2023-11-26T08:50:03.811-03:00  INFO 3132 --- [restartedMain] b.c.claudio.DigitalScheduleApplication   : Started DigitalScheduleApplication in 10.241 seconds (process running for 11.559)
+2023-11-26T08:50:11.336-03:00  INFO 3132 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-11-26T08:50:11.336-03:00  INFO 3132 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-11-26T08:50:11.338-03:00  INFO 3132 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2023-11-26T08:50:11.826-03:00  WARN 3132 --- [http-nio-8080-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.security.authentication.BadCredentialsException: Usuário inexistente ou senha inválida]
+2023-11-26T09:04:28.002-03:00  WARN 3132 --- [http-nio-8080-exec-7] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.security.authentication.BadCredentialsException: Usuário inexistente ou senha inválida]
+2023-11-26T09:07:23.833-03:00  INFO 3132 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2023-11-26T09:07:23.859-03:00  INFO 3132 --- [Thread-5] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-11-26T09:07:23.860-03:00  INFO 3132 --- [Thread-5] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Destroying Spring FrameworkServlet 'dispatcherServlet'
+2023-11-26T09:07:23.865-03:00  WARN 3132 --- [Thread-5] o.a.c.loader.WebappClassLoaderBase       : The web application [api] appears to have started a thread named [HikariPool-1 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.4.1/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.4.1/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@17.0.4.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+ java.base@17.0.4.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@17.0.4.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@17.0.4.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@17.0.4.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.4.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.4.1/java.lang.Thread.run(Thread.java:833)
+2023-11-26T09:07:23.871-03:00  INFO 3132 --- [Thread-5] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-11-26T09:07:23.875-03:00  INFO 3132 --- [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-11-26T09:07:23.880-03:00  INFO 3132 --- [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-11-26T09:07:23.986-03:00  INFO 3132 --- [restartedMain] b.c.claudio.DigitalScheduleApplication   : Starting DigitalScheduleApplication using Java 17.0.4.1 with PID 3132 (C:\dev\spring-projects\agenda-digital\digital-schedule\target\classes started by claudio-marcos in C:\dev\spring-projects\agenda-digital\digital-schedule)
+2023-11-26T09:07:23.986-03:00  INFO 3132 --- [restartedMain] b.c.claudio.DigitalScheduleApplication   : No active profile set, falling back to 1 default profile: "default"
+2023-11-26T09:07:24.326-03:00  INFO 3132 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-11-26T09:07:24.383-03:00  INFO 3132 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 55 ms. Found 9 JPA repository interfaces.
+2023-11-26T09:07:24.525-03:00  INFO 3132 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-11-26T09:07:24.525-03:00  INFO 3132 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-11-26T09:07:24.526-03:00  INFO 3132 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.12]
+2023-11-26T09:07:24.556-03:00  INFO 3132 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+2023-11-26T09:07:24.556-03:00  INFO 3132 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 565 ms
+2023-11-26T09:07:24.633-03:00  INFO 3132 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-11-26T09:07:24.646-03:00  INFO 3132 --- [restartedMain] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-11-26T09:07:24.647-03:00  INFO 3132 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-11-26T09:07:24.649-03:00  INFO 3132 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2023-11-26T09:07:24.755-03:00  INFO 3132 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection org.postgresql.jdbc.PgConnection@6e592c1b
+2023-11-26T09:07:24.755-03:00  INFO 3132 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2023-11-26T09:07:25.100-03:00  INFO 3132 --- [restartedMain] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-11-26T09:07:25.282-03:00  INFO 3132 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-11-26T09:07:25.902-03:00  INFO 3132 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-11-26T09:07:26.223-03:00  WARN 3132 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-11-26T09:07:26.313-03:00  INFO 3132 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@39e8fe, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@8b17a3e, org.springframework.security.web.context.SecurityContextHolderFilter@34dde315, org.springframework.security.web.header.HeaderWriterFilter@6fd4bb5b, org.springframework.security.web.authentication.logout.LogoutFilter@70a5fa7, br.com.claudio.infra.config.security.SecurityFilter@58c19090, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@50e2c8a9, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1a26bf8d, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3e58ab03, org.springframework.security.web.session.SessionManagementFilter@224452f8, org.springframework.security.web.access.ExceptionTranslationFilter@2f296e41, org.springframework.security.web.access.intercept.AuthorizationFilter@5284bf10]
+2023-11-26T09:07:26.367-03:00  INFO 3132 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-11-26T09:07:26.381-03:00  INFO 3132 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/api'
+2023-11-26T09:07:26.390-03:00  INFO 3132 --- [restartedMain] b.c.claudio.DigitalScheduleApplication   : Started DigitalScheduleApplication in 2.442 seconds (process running for 1054.139)
+2023-11-26T09:07:26.393-03:00  INFO 3132 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2023-11-26T09:07:27.872-03:00  INFO 3132 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 3 class path changes (0 additions, 0 deletions, 3 modifications)
+2023-11-26T09:07:27.893-03:00  INFO 3132 --- [Thread-7] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-11-26T09:07:27.895-03:00  WARN 3132 --- [Thread-7] o.a.c.loader.WebappClassLoaderBase       : The web application [api] appears to have started a thread named [HikariPool-2 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.4.1/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.4.1/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@17.0.4.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+ java.base@17.0.4.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@17.0.4.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@17.0.4.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@17.0.4.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.4.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.4.1/java.lang.Thread.run(Thread.java:833)
+2023-11-26T09:07:27.896-03:00  WARN 3132 --- [Thread-7] o.a.c.loader.WebappClassLoaderBase       : The web application [api] appears to have started a thread named [HikariPool-2 connection adder] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.4.1/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.4.1/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@17.0.4.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+ java.base@17.0.4.1/java.util.concurrent.LinkedBlockingQueue.poll(LinkedBlockingQueue.java:460)
+ java.base@17.0.4.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1061)
+ java.base@17.0.4.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.4.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.4.1/java.lang.Thread.run(Thread.java:833)
+2023-11-26T09:07:27.899-03:00  INFO 3132 --- [Thread-7] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-11-26T09:07:27.900-03:00  INFO 3132 --- [Thread-7] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2023-11-26T09:07:27.903-03:00  INFO 3132 --- [Thread-7] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2023-11-26T09:07:27.995-03:00  INFO 3132 --- [restartedMain] b.c.claudio.DigitalScheduleApplication   : Starting DigitalScheduleApplication using Java 17.0.4.1 with PID 3132 (C:\dev\spring-projects\agenda-digital\digital-schedule\target\classes started by claudio-marcos in C:\dev\spring-projects\agenda-digital\digital-schedule)
+2023-11-26T09:07:27.996-03:00  INFO 3132 --- [restartedMain] b.c.claudio.DigitalScheduleApplication   : No active profile set, falling back to 1 default profile: "default"
+2023-11-26T09:07:28.217-03:00  INFO 3132 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-11-26T09:07:28.270-03:00  INFO 3132 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 53 ms. Found 9 JPA repository interfaces.
+2023-11-26T09:07:28.377-03:00  INFO 3132 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-11-26T09:07:28.378-03:00  INFO 3132 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-11-26T09:07:28.378-03:00  INFO 3132 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.12]
+2023-11-26T09:07:28.403-03:00  INFO 3132 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+2023-11-26T09:07:28.403-03:00  INFO 3132 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 406 ms
+2023-11-26T09:07:28.480-03:00  INFO 3132 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-11-26T09:07:28.493-03:00  INFO 3132 --- [restartedMain] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-11-26T09:07:28.493-03:00  INFO 3132 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-11-26T09:07:28.494-03:00  INFO 3132 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+2023-11-26T09:07:28.607-03:00  INFO 3132 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-3 - Added connection org.postgresql.jdbc.PgConnection@69b2a503
+2023-11-26T09:07:28.607-03:00  INFO 3132 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+2023-11-26T09:07:28.918-03:00  INFO 3132 --- [restartedMain] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-11-26T09:07:29.033-03:00  INFO 3132 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-11-26T09:07:29.604-03:00  INFO 3132 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-11-26T09:07:29.885-03:00  WARN 3132 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-11-26T09:07:29.967-03:00  INFO 3132 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@73f59194, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6b4cbda8, org.springframework.security.web.context.SecurityContextHolderFilter@4b7299d4, org.springframework.security.web.header.HeaderWriterFilter@726075d, org.springframework.security.web.authentication.logout.LogoutFilter@407b0b41, br.com.claudio.infra.config.security.SecurityFilter@3b1b5163, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@793c11a9, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4e97ed3c, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2d04b564, org.springframework.security.web.session.SessionManagementFilter@61661716, org.springframework.security.web.access.ExceptionTranslationFilter@e179d7e, org.springframework.security.web.access.intercept.AuthorizationFilter@28dc03a5]
+2023-11-26T09:07:30.008-03:00  INFO 3132 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-11-26T09:07:30.019-03:00  INFO 3132 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/api'
+2023-11-26T09:07:30.026-03:00  INFO 3132 --- [restartedMain] b.c.claudio.DigitalScheduleApplication   : Started DigitalScheduleApplication in 2.052 seconds (process running for 1057.775)
+2023-11-26T09:07:30.028-03:00  INFO 3132 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2023-11-26T09:13:00.724-03:00  INFO 3132 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-11-26T09:13:00.725-03:00  INFO 3132 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-11-26T09:13:00.726-03:00  INFO 3132 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2023-11-26T09:13:00.938-03:00  WARN 3132 --- [http-nio-8080-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.security.authentication.BadCredentialsException: Bad credentials]
+2023-11-26T09:15:15.734-03:00  WARN 3132 --- [http-nio-8080-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.security.authentication.BadCredentialsException: Bad credentials]
+2023-11-26T09:17:18.374-03:00  WARN 3132 --- [http-nio-8080-exec-3] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.security.authentication.BadCredentialsException: Bad credentials]
+2023-11-26T09:51:58.509-03:00  WARN 3132 --- [http-nio-8080-exec-8] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.security.authentication.BadCredentialsException: Usuário inexistente ou senha inválida]
+2023-11-26T15:01:01.182-03:00  WARN 3132 --- [HikariPool-3 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-3 - Thread starvation or clock leap detected (housekeeper delta=1h8m58s325ms115µs800ns).
+2023-11-26T17:32:57.070-03:00  INFO 3132 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 4 class path changes (0 additions, 0 deletions, 4 modifications)
+2023-11-26T17:32:57.091-03:00  INFO 3132 --- [Thread-11] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-11-26T17:32:57.092-03:00  INFO 3132 --- [Thread-11] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Destroying Spring FrameworkServlet 'dispatcherServlet'
+2023-11-26T17:32:57.094-03:00  WARN 3132 --- [Thread-11] o.a.c.loader.WebappClassLoaderBase       : The web application [api] appears to have started a thread named [HikariPool-3 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.4.1/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.4.1/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@17.0.4.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+ java.base@17.0.4.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@17.0.4.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@17.0.4.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@17.0.4.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.4.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.4.1/java.lang.Thread.run(Thread.java:833)
+2023-11-26T17:32:57.098-03:00  INFO 3132 --- [Thread-11] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-11-26T17:32:57.100-03:00  INFO 3132 --- [Thread-11] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown initiated...
+2023-11-26T17:32:57.101-03:00  INFO 3132 --- [Thread-11] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown completed.
+2023-11-26T17:32:57.232-03:00  INFO 3132 --- [restartedMain] b.c.claudio.DigitalScheduleApplication   : Starting DigitalScheduleApplication using Java 17.0.4.1 with PID 3132 (C:\dev\spring-projects\agenda-digital\digital-schedule\target\classes started by claudio-marcos in C:\dev\spring-projects\agenda-digital\digital-schedule)
+2023-11-26T17:32:57.233-03:00  INFO 3132 --- [restartedMain] b.c.claudio.DigitalScheduleApplication   : No active profile set, falling back to 1 default profile: "default"
+2023-11-26T17:32:58.423-03:00  INFO 3132 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-11-26T17:32:58.468-03:00  INFO 3132 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 44 ms. Found 9 JPA repository interfaces.
+2023-11-26T17:32:58.583-03:00  INFO 3132 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-11-26T17:32:58.584-03:00  INFO 3132 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-11-26T17:32:58.584-03:00  INFO 3132 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.12]
+2023-11-26T17:32:58.605-03:00  INFO 3132 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+2023-11-26T17:32:58.605-03:00  INFO 3132 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1370 ms
+2023-11-26T17:32:58.692-03:00  INFO 3132 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-11-26T17:32:58.702-03:00  INFO 3132 --- [restartedMain] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-11-26T17:32:58.702-03:00  INFO 3132 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-11-26T17:32:58.703-03:00  INFO 3132 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Starting...
+2023-11-26T17:32:58.884-03:00  INFO 3132 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-4 - Added connection org.postgresql.jdbc.PgConnection@5e11be34
+2023-11-26T17:32:58.884-03:00  INFO 3132 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Start completed.
+2023-11-26T17:32:59.335-03:00  INFO 3132 --- [restartedMain] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-11-26T17:32:59.502-03:00  INFO 3132 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-11-26T17:33:00.585-03:00  INFO 3132 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-11-26T17:33:00.965-03:00  WARN 3132 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-11-26T17:33:01.098-03:00  INFO 3132 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@148f1e93, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@ed88f81, org.springframework.security.web.context.SecurityContextHolderFilter@6b627a13, org.springframework.security.web.header.HeaderWriterFilter@106fb3b3, org.springframework.security.web.authentication.logout.LogoutFilter@564f4362, br.com.claudio.infra.config.security.SecurityFilter@b216444, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1d429962, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@705d5352, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7faf227a, org.springframework.security.web.session.SessionManagementFilter@30fcfe76, org.springframework.security.web.access.ExceptionTranslationFilter@4e571025, org.springframework.security.web.access.intercept.AuthorizationFilter@4aaae161]
+2023-11-26T17:33:01.167-03:00  INFO 3132 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-11-26T17:33:01.182-03:00  INFO 3132 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/api'
+2023-11-26T17:33:01.189-03:00  INFO 3132 --- [restartedMain] b.c.claudio.DigitalScheduleApplication   : Started DigitalScheduleApplication in 3.987 seconds (process running for 31388.951)
+2023-11-26T17:33:01.192-03:00  INFO 3132 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2023-11-26T17:33:14.336-03:00  INFO 3132 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2023-11-26T17:33:14.354-03:00  INFO 3132 --- [Thread-15] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-11-26T17:33:14.356-03:00  WARN 3132 --- [Thread-15] o.a.c.loader.WebappClassLoaderBase       : The web application [api] appears to have started a thread named [HikariPool-4 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.4.1/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.4.1/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@17.0.4.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+ java.base@17.0.4.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@17.0.4.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@17.0.4.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@17.0.4.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.4.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.4.1/java.lang.Thread.run(Thread.java:833)
+2023-11-26T17:33:14.359-03:00  INFO 3132 --- [Thread-15] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-11-26T17:33:14.360-03:00  INFO 3132 --- [Thread-15] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown initiated...
+2023-11-26T17:33:14.361-03:00  INFO 3132 --- [Thread-15] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown completed.
+2023-11-26T17:33:14.457-03:00  INFO 3132 --- [restartedMain] b.c.claudio.DigitalScheduleApplication   : Starting DigitalScheduleApplication using Java 17.0.4.1 with PID 3132 (C:\dev\spring-projects\agenda-digital\digital-schedule\target\classes started by claudio-marcos in C:\dev\spring-projects\agenda-digital\digital-schedule)
+2023-11-26T17:33:14.457-03:00  INFO 3132 --- [restartedMain] b.c.claudio.DigitalScheduleApplication   : No active profile set, falling back to 1 default profile: "default"
+2023-11-26T17:33:14.659-03:00  INFO 3132 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-11-26T17:33:14.702-03:00  INFO 3132 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 42 ms. Found 9 JPA repository interfaces.
+2023-11-26T17:33:14.786-03:00  INFO 3132 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-11-26T17:33:14.787-03:00  INFO 3132 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-11-26T17:33:14.787-03:00  INFO 3132 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.12]
+2023-11-26T17:33:14.804-03:00  INFO 3132 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+2023-11-26T17:33:14.805-03:00  INFO 3132 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 346 ms
+2023-11-26T17:33:14.849-03:00  INFO 3132 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-11-26T17:33:14.856-03:00  INFO 3132 --- [restartedMain] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-11-26T17:33:14.856-03:00  INFO 3132 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-11-26T17:33:14.857-03:00  INFO 3132 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Starting...
+2023-11-26T17:33:14.936-03:00  INFO 3132 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-5 - Added connection org.postgresql.jdbc.PgConnection@13eb55b
+2023-11-26T17:33:14.937-03:00  INFO 3132 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Start completed.
+2023-11-26T17:33:15.233-03:00  INFO 3132 --- [restartedMain] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-11-26T17:33:15.332-03:00  INFO 3132 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-11-26T17:33:15.925-03:00  INFO 3132 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-11-26T17:33:16.220-03:00  WARN 3132 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-11-26T17:33:16.301-03:00  INFO 3132 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@45446e0a, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@17e5133, org.springframework.security.web.context.SecurityContextHolderFilter@13f18a17, org.springframework.security.web.header.HeaderWriterFilter@778f9007, org.springframework.security.web.authentication.logout.LogoutFilter@44b019c8, br.com.claudio.infra.config.security.SecurityFilter@6074c06b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4eb12328, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@45359d51, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7c0c2c6b, org.springframework.security.web.session.SessionManagementFilter@452b71da, org.springframework.security.web.access.ExceptionTranslationFilter@9ea9ee7, org.springframework.security.web.access.intercept.AuthorizationFilter@6a69103a]
+2023-11-26T17:33:16.341-03:00  INFO 3132 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-11-26T17:33:16.354-03:00  INFO 3132 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/api'
+2023-11-26T17:33:16.359-03:00  INFO 3132 --- [restartedMain] b.c.claudio.DigitalScheduleApplication   : Started DigitalScheduleApplication in 1.922 seconds (process running for 31404.122)
+2023-11-26T17:33:16.361-03:00  INFO 3132 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2023-11-26T17:33:25.117-03:00  INFO 3132 --- [http-nio-8080-exec-3] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-11-26T17:33:25.117-03:00  INFO 3132 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-11-26T17:33:25.119-03:00  INFO 3132 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2023-11-26T17:33:25.119-03:00 ERROR 3132 --- [http-nio-8080-exec-3] o.a.c.c.C.[.[.[.[dispatcherServlet]      : Servlet.service() for servlet [dispatcherServlet] in context with path [/api] threw exception [Filter execution threw an exception] with root cause
 
-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2023-11-14T10:21:33.915-03:00 ERROR 11164 --- [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
+java.lang.Error: Unresolved compilation problem: 
+	The method findByLogin(String) is undefined for the type UserRepository
 
-***************************
-APPLICATION FAILED TO START
-***************************
+	at br.com.claudio.infra.config.security.SecurityFilter.doFilterInternal(SecurityFilter.java:30) ~[classes/:na]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar:6.0.11]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.1.3.jar:6.1.3]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107) ~[spring-security-web-6.1.3.jar:6.1.3]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93) ~[spring-security-web-6.1.3.jar:6.1.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.1.3.jar:6.1.3]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-6.1.3.jar:6.1.3]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-6.1.3.jar:6.1.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar:6.0.11]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.1.3.jar:6.1.3]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82) ~[spring-security-web-6.1.3.jar:6.1.3]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69) ~[spring-security-web-6.1.3.jar:6.1.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.1.3.jar:6.1.3]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62) ~[spring-security-web-6.1.3.jar:6.1.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar:6.0.11]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.1.3.jar:6.1.3]
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-6.1.3.jar:6.1.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar:6.0.11]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.1.3.jar:6.1.3]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233) ~[spring-security-web-6.1.3.jar:6.1.3]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191) ~[spring-security-web-6.1.3.jar:6.1.3]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352) ~[spring-web-6.0.11.jar:6.0.11]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268) ~[spring-web-6.0.11.jar:6.0.11]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.0.11.jar:6.0.11]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar:6.0.11]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.0.11.jar:6.0.11]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar:6.0.11]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.0.11.jar:6.0.11]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar:6.0.11]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:166) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:894) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1740) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
 
-Description:
+2023-11-26T17:33:30.747-03:00 ERROR 3132 --- [http-nio-8080-exec-2] o.a.c.c.C.[.[.[.[dispatcherServlet]      : Servlet.service() for servlet [dispatcherServlet] in context with path [/api] threw exception [Filter execution threw an exception] with root cause
 
-Web server failed to start. Port 8080 was already in use.
+java.lang.Error: Unresolved compilation problem: 
+	The method findByLogin(String) is undefined for the type UserRepository
 
-Action:
+	at br.com.claudio.infra.config.security.SecurityFilter.doFilterInternal(SecurityFilter.java:30) ~[classes/:na]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar:6.0.11]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.1.3.jar:6.1.3]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107) ~[spring-security-web-6.1.3.jar:6.1.3]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93) ~[spring-security-web-6.1.3.jar:6.1.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.1.3.jar:6.1.3]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-6.1.3.jar:6.1.3]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-6.1.3.jar:6.1.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar:6.0.11]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.1.3.jar:6.1.3]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82) ~[spring-security-web-6.1.3.jar:6.1.3]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69) ~[spring-security-web-6.1.3.jar:6.1.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.1.3.jar:6.1.3]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62) ~[spring-security-web-6.1.3.jar:6.1.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar:6.0.11]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.1.3.jar:6.1.3]
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-6.1.3.jar:6.1.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar:6.0.11]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.1.3.jar:6.1.3]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233) ~[spring-security-web-6.1.3.jar:6.1.3]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191) ~[spring-security-web-6.1.3.jar:6.1.3]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352) ~[spring-web-6.0.11.jar:6.0.11]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268) ~[spring-web-6.0.11.jar:6.0.11]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.0.11.jar:6.0.11]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar:6.0.11]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.0.11.jar:6.0.11]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar:6.0.11]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.0.11.jar:6.0.11]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar:6.0.11]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:166) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:894) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1740) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
 
-Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+2023-11-26T17:33:36.425-03:00 ERROR 3132 --- [http-nio-8080-exec-4] o.a.c.c.C.[.[.[.[dispatcherServlet]      : Servlet.service() for servlet [dispatcherServlet] in context with path [/api] threw exception [Filter execution threw an exception] with root cause
 
-2023-11-14T10:22:05.451-03:00  INFO 20424 --- [restartedMain] b.c.claudio.DigitalScheduleApplication   : Starting DigitalScheduleApplication using Java 17.0.4.1 with PID 20424 (C:\dev\spring-projects\agenda-digital\digital-schedule\target\classes started by claudio-marcos in C:\dev\spring-projects\agenda-digital\digital-schedule)
-2023-11-14T10:22:05.455-03:00  INFO 20424 --- [restartedMain] b.c.claudio.DigitalScheduleApplication   : No active profile set, falling back to 1 default profile: "default"
-2023-11-14T10:22:05.515-03:00  INFO 20424 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2023-11-14T10:22:05.515-03:00  INFO 20424 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2023-11-14T10:22:06.224-03:00  INFO 20424 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-11-14T10:22:06.327-03:00  INFO 20424 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 96 ms. Found 8 JPA repository interfaces.
-2023-11-14T10:22:06.929-03:00  INFO 20424 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2023-11-14T10:22:06.939-03:00  INFO 20424 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2023-11-14T10:22:06.939-03:00  INFO 20424 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.12]
-2023-11-14T10:22:07.008-03:00  INFO 20424 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
-2023-11-14T10:22:07.009-03:00  INFO 20424 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1492 ms
-2023-11-14T10:22:07.039-03:00  INFO 20424 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2023-11-14T10:22:07.242-03:00  INFO 20424 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@241969b0
-2023-11-14T10:22:07.243-03:00  INFO 20424 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2023-11-14T10:22:07.254-03:00  INFO 20424 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://localhost:5432/scheduledb'
-2023-11-14T10:22:07.396-03:00  INFO 20424 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-11-14T10:22:07.455-03:00  INFO 20424 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.7.Final
-2023-11-14T10:22:07.457-03:00  INFO 20424 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
-2023-11-14T10:22:07.601-03:00  INFO 20424 --- [restartedMain] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
-2023-11-14T10:22:07.748-03:00  INFO 20424 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2023-11-14T10:22:08.336-03:00  INFO 20424 --- [restartedMain] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
-2023-11-14T10:22:09.185-03:00  INFO 20424 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-11-14T10:22:09.774-03:00  INFO 20424 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-11-14T10:22:10.065-03:00  INFO 20424 --- [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
-2023-11-14T10:22:10.740-03:00  WARN 20424 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-11-14T10:22:11.068-03:00  INFO 20424 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2023-11-14T10:22:11.111-03:00  INFO 20424 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/api'
-2023-11-14T10:22:11.121-03:00  INFO 20424 --- [restartedMain] b.c.claudio.DigitalScheduleApplication   : Started DigitalScheduleApplication in 6.119 seconds (process running for 6.959)
-2023-11-14T10:22:15.060-03:00  INFO 20424 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2023-11-14T10:22:15.061-03:00  INFO 20424 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2023-11-14T10:22:15.062-03:00  INFO 20424 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2023-11-14T10:22:15.339-03:00 ERROR 20424 --- [http-nio-8080-exec-2] b.c.claudio.DigitalScheduleApplication   : Erro ao enviar mensagem 
-2023-11-14T10:22:15.339-03:00 ERROR 20424 --- [http-nio-8080-exec-2] b.c.claudio.DigitalScheduleApplication   : Erro ao enviar mensagem 
-2023-11-14T10:22:15.340-03:00 ERROR 20424 --- [http-nio-8080-exec-2] b.c.claudio.DigitalScheduleApplication   : Erro ao enviar mensagem 
-2023-11-14T10:49:23.447-03:00 ERROR 20424 --- [http-nio-8080-exec-5] b.c.claudio.DigitalScheduleApplication   : Erro ao enviar mensagem 
-2023-11-14T10:49:23.448-03:00 ERROR 20424 --- [http-nio-8080-exec-5] b.c.claudio.DigitalScheduleApplication   : Erro ao enviar mensagem 
-2023-11-14T10:49:23.449-03:00 ERROR 20424 --- [http-nio-8080-exec-5] b.c.claudio.DigitalScheduleApplication   : Erro ao enviar mensagem 
-2023-11-14T10:51:19.429-03:00 ERROR 20424 --- [http-nio-8080-exec-7] b.c.claudio.DigitalScheduleApplication   : Erro ao enviar mensagem 
-2023-11-14T10:51:19.430-03:00 ERROR 20424 --- [http-nio-8080-exec-7] b.c.claudio.DigitalScheduleApplication   : Erro ao enviar mensagem 
-2023-11-14T10:51:19.430-03:00 ERROR 20424 --- [http-nio-8080-exec-7] b.c.claudio.DigitalScheduleApplication   : Erro ao enviar mensagem 
-2023-11-14T10:54:47.926-03:00 ERROR 20424 --- [http-nio-8080-exec-2] b.c.claudio.DigitalScheduleApplication   : Erro ao enviar mensagem 
-2023-11-14T10:54:47.927-03:00 ERROR 20424 --- [http-nio-8080-exec-2] b.c.claudio.DigitalScheduleApplication   : Erro ao enviar mensagem 
-2023-11-14T10:54:47.928-03:00 ERROR 20424 --- [http-nio-8080-exec-2] b.c.claudio.DigitalScheduleApplication   : Erro ao enviar mensagem 
-2023-11-14T10:58:23.200-03:00 ERROR 20424 --- [http-nio-8080-exec-6] b.c.claudio.DigitalScheduleApplication   : Erro ao enviar mensagem 
-2023-11-14T10:58:23.201-03:00 ERROR 20424 --- [http-nio-8080-exec-6] b.c.claudio.DigitalScheduleApplication   : Erro ao enviar mensagem 
-2023-11-14T10:58:23.201-03:00 ERROR 20424 --- [http-nio-8080-exec-6] b.c.claudio.DigitalScheduleApplication   : Erro ao enviar mensagem 
-2023-11-14T10:58:42.237-03:00  WARN 20424 --- [http-nio-8080-exec-8] o.s.web.servlet.PageNotFound             : Request method 'GET' is not supported
-2023-11-14T10:58:42.255-03:00  WARN 20424 --- [http-nio-8080-exec-8] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' is not supported]
-2023-11-14T10:58:53.960-03:00  WARN 20424 --- [http-nio-8080-exec-9] o.s.web.servlet.PageNotFound             : Request method 'GET' is not supported
-2023-11-14T10:58:53.961-03:00  WARN 20424 --- [http-nio-8080-exec-9] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' is not supported]
-2023-11-14T10:58:59.522-03:00  WARN 20424 --- [http-nio-8080-exec-10] o.s.web.servlet.PageNotFound             : Request method 'GET' is not supported
-2023-11-14T10:58:59.524-03:00  WARN 20424 --- [http-nio-8080-exec-10] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' is not supported]
-2023-11-14T10:59:28.715-03:00  WARN 20424 --- [http-nio-8080-exec-1] o.s.web.servlet.PageNotFound             : Request method 'GET' is not supported
-2023-11-14T10:59:28.717-03:00  WARN 20424 --- [http-nio-8080-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' is not supported]
-2023-11-14T11:01:37.724-03:00 ERROR 20424 --- [http-nio-8080-exec-4] b.c.claudio.DigitalScheduleApplication   : Erro ao enviar mensagem 
-2023-11-14T11:01:37.724-03:00 ERROR 20424 --- [http-nio-8080-exec-4] b.c.claudio.DigitalScheduleApplication   : Erro ao enviar mensagem 
-2023-11-14T11:01:37.725-03:00 ERROR 20424 --- [http-nio-8080-exec-4] b.c.claudio.DigitalScheduleApplication   : Erro ao enviar mensagem 
-2023-11-14T11:11:06.184-03:00  INFO 20424 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
-2023-11-14T11:11:06.207-03:00  INFO 20424 --- [Thread-5] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
-2023-11-14T11:11:06.209-03:00  INFO 20424 --- [Thread-5] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Destroying Spring FrameworkServlet 'dispatcherServlet'
-2023-11-14T11:11:06.216-03:00  INFO 20424 --- [Thread-5] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2023-11-14T11:11:06.219-03:00  INFO 20424 --- [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2023-11-14T11:11:06.223-03:00  INFO 20424 --- [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2023-11-14T11:11:06.328-03:00  INFO 20424 --- [restartedMain] b.c.claudio.DigitalScheduleApplication   : Starting DigitalScheduleApplication using Java 17.0.4.1 with PID 20424 (C:\dev\spring-projects\agenda-digital\digital-schedule\target\classes started by claudio-marcos in C:\dev\spring-projects\agenda-digital\digital-schedule)
-2023-11-14T11:11:06.329-03:00  INFO 20424 --- [restartedMain] b.c.claudio.DigitalScheduleApplication   : No active profile set, falling back to 1 default profile: "default"
-2023-11-14T11:11:06.585-03:00  INFO 20424 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-11-14T11:11:06.631-03:00  INFO 20424 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 46 ms. Found 8 JPA repository interfaces.
-2023-11-14T11:11:06.750-03:00  INFO 20424 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2023-11-14T11:11:06.751-03:00  INFO 20424 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2023-11-14T11:11:06.751-03:00  INFO 20424 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.12]
-2023-11-14T11:11:06.770-03:00  INFO 20424 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
-2023-11-14T11:11:06.770-03:00  INFO 20424 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 438 ms
-2023-11-14T11:11:06.784-03:00  INFO 20424 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
-2023-11-14T11:11:06.864-03:00  INFO 20424 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection org.postgresql.jdbc.PgConnection@6beb8c85
-2023-11-14T11:11:06.865-03:00  INFO 20424 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
-2023-11-14T11:11:06.865-03:00  INFO 20424 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://localhost:5432/scheduledb'
-2023-11-14T11:11:06.898-03:00  INFO 20424 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-11-14T11:11:06.906-03:00  INFO 20424 --- [restartedMain] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
-2023-11-14T11:11:06.906-03:00  INFO 20424 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2023-11-14T11:11:07.221-03:00  INFO 20424 --- [restartedMain] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
-2023-11-14T11:11:07.342-03:00  INFO 20424 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-11-14T11:11:07.906-03:00  INFO 20424 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-11-14T11:11:08.188-03:00  WARN 20424 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-11-14T11:11:08.293-03:00  INFO 20424 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2023-11-14T11:11:08.305-03:00  INFO 20424 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/api'
-2023-11-14T11:11:08.311-03:00  INFO 20424 --- [restartedMain] b.c.claudio.DigitalScheduleApplication   : Started DigitalScheduleApplication in 2.017 seconds (process running for 2944.15)
-2023-11-14T11:11:08.314-03:00  INFO 20424 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
-2023-11-14T11:11:16.284-03:00  INFO 20424 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2023-11-14T11:11:16.284-03:00  INFO 20424 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2023-11-14T11:11:16.285-03:00  INFO 20424 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2023-11-14T11:11:25.186-03:00 ERROR 20424 --- [http-nio-8080-exec-2] b.c.claudio.DigitalScheduleApplication   : Erro ao enviar mensagem 
-2023-11-14T11:11:25.187-03:00 ERROR 20424 --- [http-nio-8080-exec-2] b.c.claudio.DigitalScheduleApplication   : Erro ao enviar mensagem 
-2023-11-14T11:11:25.187-03:00 ERROR 20424 --- [http-nio-8080-exec-2] b.c.claudio.DigitalScheduleApplication   : Erro ao enviar mensagem 
-2023-11-14T14:29:54.122-03:00  INFO 20424 --- [RMI TCP Connection(259)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
-2023-11-14T14:29:54.143-03:00  INFO 20424 --- [RMI TCP Connection(259)-127.0.0.1] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
-2023-11-14T14:29:54.143-03:00  INFO 20424 --- [RMI TCP Connection(259)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Destroying Spring FrameworkServlet 'dispatcherServlet'
-2023-11-14T14:29:54.149-03:00  INFO 20424 --- [RMI TCP Connection(259)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2023-11-14T14:29:54.149-03:00  INFO 20424 --- [RMI TCP Connection(259)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
-2023-11-14T14:29:54.152-03:00  INFO 20424 --- [RMI TCP Connection(259)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
-2023-11-14T14:29:56.364-03:00  INFO 340 --- [restartedMain] b.c.claudio.DigitalScheduleApplication   : Starting DigitalScheduleApplication using Java 17.0.4.1 with PID 340 (C:\dev\spring-projects\agenda-digital\digital-schedule\target\classes started by claudio-marcos in C:\dev\spring-projects\agenda-digital\digital-schedule)
-2023-11-14T14:29:56.367-03:00  INFO 340 --- [restartedMain] b.c.claudio.DigitalScheduleApplication   : No active profile set, falling back to 1 default profile: "default"
-2023-11-14T14:29:56.425-03:00  INFO 340 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2023-11-14T14:29:56.425-03:00  INFO 340 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2023-11-14T14:29:57.209-03:00  INFO 340 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-11-14T14:29:57.309-03:00  INFO 340 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 92 ms. Found 8 JPA repository interfaces.
-2023-11-14T14:29:57.908-03:00  INFO 340 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2023-11-14T14:29:57.919-03:00  INFO 340 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2023-11-14T14:29:57.919-03:00  INFO 340 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.12]
-2023-11-14T14:29:57.992-03:00  INFO 340 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
-2023-11-14T14:29:57.993-03:00  INFO 340 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1567 ms
-2023-11-14T14:29:58.024-03:00  INFO 340 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2023-11-14T14:29:58.228-03:00  INFO 340 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@5400163b
-2023-11-14T14:29:58.230-03:00  INFO 340 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2023-11-14T14:29:58.242-03:00  INFO 340 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://localhost:5432/scheduledb'
-2023-11-14T14:29:58.391-03:00  INFO 340 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-11-14T14:29:58.454-03:00  INFO 340 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.7.Final
-2023-11-14T14:29:58.457-03:00  INFO 340 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
-2023-11-14T14:29:58.633-03:00  INFO 340 --- [restartedMain] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
-2023-11-14T14:29:58.790-03:00  INFO 340 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2023-11-14T14:29:59.468-03:00  INFO 340 --- [restartedMain] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
-2023-11-14T14:30:00.471-03:00  INFO 340 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-11-14T14:30:01.334-03:00  INFO 340 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-11-14T14:30:01.700-03:00  INFO 340 --- [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
-2023-11-14T14:30:02.891-03:00  WARN 340 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-11-14T14:30:03.779-03:00  INFO 340 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2023-11-14T14:30:03.852-03:00  INFO 340 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/api'
-2023-11-14T14:30:03.914-03:00  INFO 340 --- [restartedMain] b.c.claudio.DigitalScheduleApplication   : Started DigitalScheduleApplication in 7.984 seconds (process running for 8.784)
-2023-11-14T14:50:27.370-03:00  INFO 340 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2023-11-14T14:50:27.370-03:00  INFO 340 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2023-11-14T14:50:27.372-03:00  INFO 340 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
-2023-11-14T18:35:05.526-03:00  WARN 340 --- [http-nio-8080-exec-6] o.s.web.servlet.PageNotFound             : Request method 'POST' is not supported
-2023-11-14T18:35:05.542-03:00  WARN 340 --- [http-nio-8080-exec-6] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'POST' is not supported]
-2023-11-14T21:56:08.605-03:00  INFO 340 --- [RMI TCP Connection(450)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
-2023-11-14T21:56:08.622-03:00  INFO 340 --- [RMI TCP Connection(450)-127.0.0.1] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
-2023-11-14T21:56:08.624-03:00  INFO 340 --- [RMI TCP Connection(450)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Destroying Spring FrameworkServlet 'dispatcherServlet'
-2023-11-14T21:56:08.633-03:00  INFO 340 --- [RMI TCP Connection(450)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2023-11-14T21:56:08.637-03:00  INFO 340 --- [RMI TCP Connection(450)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2023-11-14T21:56:08.640-03:00  INFO 340 --- [RMI TCP Connection(450)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2023-11-14T21:57:11.770-03:00  INFO 18448 --- [main] b.c.c.i.c.PatientControllerTest          : Starting PatientControllerTest using Java 17.0.4.1 with PID 18448 (started by claudio-marcos in C:\dev\spring-projects\agenda-digital\digital-schedule)
-2023-11-14T21:57:11.771-03:00  INFO 18448 --- [main] b.c.c.i.c.PatientControllerTest          : No active profile set, falling back to 1 default profile: "default"
-2023-11-14T21:57:15.610-03:00  INFO 18448 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
-2023-11-14T21:57:15.610-03:00  INFO 18448 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
-2023-11-14T21:57:15.613-03:00  INFO 18448 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
-2023-11-14T21:57:15.649-03:00  INFO 18448 --- [main] b.c.c.i.c.PatientControllerTest          : Started PatientControllerTest in 4.376 seconds (process running for 6.173)
-2023-11-14T21:57:16.447-03:00  INFO 18448 --- [main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [br.com.claudio.infra.controller.PersonTypeControllerTest]: PersonTypeControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2023-11-14T21:57:16.457-03:00  INFO 18448 --- [main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration br.com.claudio.DigitalScheduleApplication for test class br.com.claudio.infra.controller.PersonTypeControllerTest
-2023-11-14T21:57:16.520-03:00  INFO 18448 --- [main] b.c.c.i.c.PersonTypeControllerTest       : Starting PersonTypeControllerTest using Java 17.0.4.1 with PID 18448 (started by claudio-marcos in C:\dev\spring-projects\agenda-digital\digital-schedule)
-2023-11-14T21:57:16.521-03:00  INFO 18448 --- [main] b.c.c.i.c.PersonTypeControllerTest       : No active profile set, falling back to 1 default profile: "default"
-2023-11-14T21:57:16.892-03:00  INFO 18448 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
-2023-11-14T21:57:16.892-03:00  INFO 18448 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
-2023-11-14T21:57:16.893-03:00  INFO 18448 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
-2023-11-14T21:57:16.897-03:00  INFO 18448 --- [main] b.c.c.i.c.PersonTypeControllerTest       : Started PersonTypeControllerTest in 0.436 seconds (process running for 7.421)
-2023-11-14T21:57:17.004-03:00  INFO 18448 --- [main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [br.com.claudio.infra.controller.ProcedureControllerTest]: ProcedureControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2023-11-14T21:57:17.010-03:00  INFO 18448 --- [main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration br.com.claudio.DigitalScheduleApplication for test class br.com.claudio.infra.controller.ProcedureControllerTest
-2023-11-14T21:57:17.041-03:00  INFO 18448 --- [main] b.c.c.i.c.ProcedureControllerTest        : Starting ProcedureControllerTest using Java 17.0.4.1 with PID 18448 (started by claudio-marcos in C:\dev\spring-projects\agenda-digital\digital-schedule)
-2023-11-14T21:57:17.041-03:00  INFO 18448 --- [main] b.c.c.i.c.ProcedureControllerTest        : No active profile set, falling back to 1 default profile: "default"
-2023-11-14T21:57:17.343-03:00  INFO 18448 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
-2023-11-14T21:57:17.344-03:00  INFO 18448 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
-2023-11-14T21:57:17.344-03:00  INFO 18448 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
-2023-11-14T21:57:17.348-03:00  INFO 18448 --- [main] b.c.c.i.c.ProcedureControllerTest        : Started ProcedureControllerTest in 0.334 seconds (process running for 7.872)
-2023-11-14T21:57:17.453-03:00  INFO 18448 --- [main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [br.com.claudio.infra.controller.ProfessionalControllerTest]: ProfessionalControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2023-11-14T21:57:17.460-03:00  INFO 18448 --- [main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration br.com.claudio.DigitalScheduleApplication for test class br.com.claudio.infra.controller.ProfessionalControllerTest
-2023-11-14T21:57:17.486-03:00  INFO 18448 --- [main] b.c.c.i.c.ProfessionalControllerTest     : Starting ProfessionalControllerTest using Java 17.0.4.1 with PID 18448 (started by claudio-marcos in C:\dev\spring-projects\agenda-digital\digital-schedule)
-2023-11-14T21:57:17.487-03:00  INFO 18448 --- [main] b.c.c.i.c.ProfessionalControllerTest     : No active profile set, falling back to 1 default profile: "default"
-2023-11-14T21:57:17.751-03:00  INFO 18448 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
-2023-11-14T21:57:17.752-03:00  INFO 18448 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
-2023-11-14T21:57:17.752-03:00  INFO 18448 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
-2023-11-14T21:57:17.759-03:00  INFO 18448 --- [main] b.c.c.i.c.ProfessionalControllerTest     : Started ProfessionalControllerTest in 0.296 seconds (process running for 8.283)
-2023-11-14T21:57:17.899-03:00  INFO 18448 --- [main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [br.com.claudio.infra.controller.ProfessionalScheduleControllerTest]: ProfessionalScheduleControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2023-11-14T21:57:17.911-03:00  INFO 18448 --- [main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration br.com.claudio.DigitalScheduleApplication for test class br.com.claudio.infra.controller.ProfessionalScheduleControllerTest
-2023-11-14T21:57:17.955-03:00  INFO 18448 --- [main] c.i.c.ProfessionalScheduleControllerTest : Starting ProfessionalScheduleControllerTest using Java 17.0.4.1 with PID 18448 (started by claudio-marcos in C:\dev\spring-projects\agenda-digital\digital-schedule)
-2023-11-14T21:57:17.956-03:00  INFO 18448 --- [main] c.i.c.ProfessionalScheduleControllerTest : No active profile set, falling back to 1 default profile: "default"
-2023-11-14T21:57:18.217-03:00  INFO 18448 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
-2023-11-14T21:57:18.217-03:00  INFO 18448 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
-2023-11-14T21:57:18.218-03:00  INFO 18448 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
-2023-11-14T21:57:18.222-03:00  INFO 18448 --- [main] c.i.c.ProfessionalScheduleControllerTest : Started ProfessionalScheduleControllerTest in 0.304 seconds (process running for 8.746)
-2023-11-14T21:57:18.266-03:00  INFO 18448 --- [main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [br.com.claudio.infra.controller.ProfessionalTypeControllerTest]: ProfessionalTypeControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2023-11-14T21:57:18.274-03:00  INFO 18448 --- [main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration br.com.claudio.DigitalScheduleApplication for test class br.com.claudio.infra.controller.ProfessionalTypeControllerTest
-2023-11-14T21:57:18.300-03:00  INFO 18448 --- [main] b.c.c.i.c.ProfessionalTypeControllerTest : Starting ProfessionalTypeControllerTest using Java 17.0.4.1 with PID 18448 (started by claudio-marcos in C:\dev\spring-projects\agenda-digital\digital-schedule)
-2023-11-14T21:57:18.301-03:00  INFO 18448 --- [main] b.c.c.i.c.ProfessionalTypeControllerTest : No active profile set, falling back to 1 default profile: "default"
-2023-11-14T21:57:18.590-03:00  INFO 18448 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
-2023-11-14T21:57:18.590-03:00  INFO 18448 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
-2023-11-14T21:57:18.590-03:00  INFO 18448 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
-2023-11-14T21:57:18.594-03:00  INFO 18448 --- [main] b.c.c.i.c.ProfessionalTypeControllerTest : Started ProfessionalTypeControllerTest in 0.316 seconds (process running for 9.118)
-2023-11-14T21:57:18.674-03:00  INFO 18448 --- [main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [br.com.claudio.infra.controller.ScheduleControllerTest]: ScheduleControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2023-11-14T21:57:18.679-03:00  INFO 18448 --- [main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration br.com.claudio.DigitalScheduleApplication for test class br.com.claudio.infra.controller.ScheduleControllerTest
-2023-11-14T21:57:18.706-03:00  INFO 18448 --- [main] b.c.c.i.c.ScheduleControllerTest         : Starting ScheduleControllerTest using Java 17.0.4.1 with PID 18448 (started by claudio-marcos in C:\dev\spring-projects\agenda-digital\digital-schedule)
-2023-11-14T21:57:18.707-03:00  INFO 18448 --- [main] b.c.c.i.c.ScheduleControllerTest         : No active profile set, falling back to 1 default profile: "default"
-2023-11-14T21:57:19.045-03:00  INFO 18448 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
-2023-11-14T21:57:19.046-03:00  INFO 18448 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
-2023-11-14T21:57:19.046-03:00  INFO 18448 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
-2023-11-14T21:57:19.050-03:00  INFO 18448 --- [main] b.c.c.i.c.ScheduleControllerTest         : Started ScheduleControllerTest in 0.368 seconds (process running for 9.573)
-2023-11-14T21:57:19.152-03:00  INFO 18448 --- [main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [br.com.claudio.repository.PersonTypeRepositoryTest]: PersonTypeRepositoryTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2023-11-14T21:57:19.171-03:00  INFO 18448 --- [main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration br.com.claudio.DigitalScheduleApplication for test class br.com.claudio.repository.PersonTypeRepositoryTest
-2023-11-14T21:57:19.196-03:00  INFO 18448 --- [main] b.c.c.r.PersonTypeRepositoryTest         : Starting PersonTypeRepositoryTest using Java 17.0.4.1 with PID 18448 (started by claudio-marcos in C:\dev\spring-projects\agenda-digital\digital-schedule)
-2023-11-14T21:57:19.197-03:00  INFO 18448 --- [main] b.c.c.r.PersonTypeRepositoryTest         : No active profile set, falling back to 1 default profile: "default"
-2023-11-14T21:57:19.365-03:00  INFO 18448 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-11-14T21:57:19.456-03:00  INFO 18448 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 80 ms. Found 8 JPA repository interfaces.
-2023-11-14T21:57:19.504-03:00  INFO 18448 --- [main] beddedDataSourceBeanFactoryPostProcessor : Replacing 'dataSource' DataSource bean with embedded version
-2023-11-14T21:57:19.575-03:00  INFO 18448 --- [main] o.s.j.d.e.EmbeddedDatabaseFactory        : Starting embedded database: url='jdbc:h2:mem:6edca957-46dc-4443-98ff-ca537a460322;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
-2023-11-14T21:57:19.984-03:00  INFO 18448 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-11-14T21:57:20.077-03:00  INFO 18448 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.7.Final
-2023-11-14T21:57:20.080-03:00  INFO 18448 --- [main] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
-2023-11-14T21:57:20.267-03:00  INFO 18448 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
-2023-11-14T21:57:20.280-03:00  INFO 18448 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2023-11-14T21:57:20.742-03:00  INFO 18448 --- [main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
-2023-11-14T21:57:21.570-03:00  INFO 18448 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-11-14T21:57:21.670-03:00  INFO 18448 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-11-14T21:57:22.056-03:00  INFO 18448 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
-2023-11-14T21:57:22.716-03:00  INFO 18448 --- [main] b.c.c.r.PersonTypeRepositoryTest         : Started PersonTypeRepositoryTest in 3.542 seconds (process running for 13.24)
-2023-11-14T21:57:22.884-03:00  WARN 18448 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 23505, SQLState: 23505
-2023-11-14T21:57:22.884-03:00 ERROR 18448 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : Unique index or primary key violation: "PUBLIC.UK_24WS1YPB46T780ETOXSASGAOE_INDEX_A ON PUBLIC.PERSON_TYPES(NAME NULLS FIRST) VALUES ( /* 1 */ 'name' )"; SQL statement:
-insert into person_types (name,id) values (?,default) [23505-214]
-2023-11-14T21:57:22.994-03:00  WARN 18448 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 22001, SQLState: 22001
-2023-11-14T21:57:22.994-03:00 ERROR 18448 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : Value too long for column "NAME CHARACTER VARYING(30)": "'xxxxxxxxxxxxxx xxxxxxxxxxxxxxxx' (31)"; SQL statement:
-insert into person_types (name,id) values (?,default) [22001-214]
-2023-11-14T21:57:23.141-03:00  INFO 18448 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+java.lang.Error: Unresolved compilation problem: 
+	The method findByLogin(String) is undefined for the type UserRepository
+
+	at br.com.claudio.infra.config.security.SecurityFilter.doFilterInternal(SecurityFilter.java:30) ~[classes/:na]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar:6.0.11]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.1.3.jar:6.1.3]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107) ~[spring-security-web-6.1.3.jar:6.1.3]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93) ~[spring-security-web-6.1.3.jar:6.1.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.1.3.jar:6.1.3]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-6.1.3.jar:6.1.3]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-6.1.3.jar:6.1.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar:6.0.11]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.1.3.jar:6.1.3]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82) ~[spring-security-web-6.1.3.jar:6.1.3]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69) ~[spring-security-web-6.1.3.jar:6.1.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.1.3.jar:6.1.3]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62) ~[spring-security-web-6.1.3.jar:6.1.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar:6.0.11]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.1.3.jar:6.1.3]
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-6.1.3.jar:6.1.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar:6.0.11]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.1.3.jar:6.1.3]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233) ~[spring-security-web-6.1.3.jar:6.1.3]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191) ~[spring-security-web-6.1.3.jar:6.1.3]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352) ~[spring-web-6.0.11.jar:6.0.11]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268) ~[spring-web-6.0.11.jar:6.0.11]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.0.11.jar:6.0.11]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar:6.0.11]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.0.11.jar:6.0.11]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar:6.0.11]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.0.11.jar:6.0.11]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar:6.0.11]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:166) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:894) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1740) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+
+2023-11-26T17:34:27.126-03:00 ERROR 3132 --- [http-nio-8080-exec-6] o.a.c.c.C.[.[.[.[dispatcherServlet]      : Servlet.service() for servlet [dispatcherServlet] in context with path [/api] threw exception [Filter execution threw an exception] with root cause
+
+java.lang.Error: Unresolved compilation problem: 
+	The method findByLogin(String) is undefined for the type UserRepository
+
+	at br.com.claudio.infra.config.security.SecurityFilter.doFilterInternal(SecurityFilter.java:30) ~[classes/:na]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar:6.0.11]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.1.3.jar:6.1.3]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107) ~[spring-security-web-6.1.3.jar:6.1.3]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93) ~[spring-security-web-6.1.3.jar:6.1.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.1.3.jar:6.1.3]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-6.1.3.jar:6.1.3]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-6.1.3.jar:6.1.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar:6.0.11]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.1.3.jar:6.1.3]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82) ~[spring-security-web-6.1.3.jar:6.1.3]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69) ~[spring-security-web-6.1.3.jar:6.1.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.1.3.jar:6.1.3]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62) ~[spring-security-web-6.1.3.jar:6.1.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar:6.0.11]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.1.3.jar:6.1.3]
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-6.1.3.jar:6.1.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar:6.0.11]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.1.3.jar:6.1.3]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233) ~[spring-security-web-6.1.3.jar:6.1.3]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191) ~[spring-security-web-6.1.3.jar:6.1.3]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352) ~[spring-web-6.0.11.jar:6.0.11]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268) ~[spring-web-6.0.11.jar:6.0.11]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.0.11.jar:6.0.11]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar:6.0.11]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.0.11.jar:6.0.11]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar:6.0.11]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.0.11.jar:6.0.11]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar:6.0.11]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:166) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:894) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1740) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+
+2023-11-26T17:34:42.874-03:00 ERROR 3132 --- [http-nio-8080-exec-5] o.a.c.c.C.[.[.[.[dispatcherServlet]      : Servlet.service() for servlet [dispatcherServlet] in context with path [/api] threw exception [Filter execution threw an exception] with root cause
+
+java.lang.Error: Unresolved compilation problem: 
+	The method findByLogin(String) is undefined for the type UserRepository
+
+	at br.com.claudio.infra.config.security.SecurityFilter.doFilterInternal(SecurityFilter.java:30) ~[classes/:na]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar:6.0.11]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.1.3.jar:6.1.3]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107) ~[spring-security-web-6.1.3.jar:6.1.3]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93) ~[spring-security-web-6.1.3.jar:6.1.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.1.3.jar:6.1.3]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-6.1.3.jar:6.1.3]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-6.1.3.jar:6.1.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar:6.0.11]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.1.3.jar:6.1.3]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82) ~[spring-security-web-6.1.3.jar:6.1.3]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69) ~[spring-security-web-6.1.3.jar:6.1.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.1.3.jar:6.1.3]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62) ~[spring-security-web-6.1.3.jar:6.1.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar:6.0.11]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.1.3.jar:6.1.3]
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-6.1.3.jar:6.1.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar:6.0.11]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.1.3.jar:6.1.3]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233) ~[spring-security-web-6.1.3.jar:6.1.3]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191) ~[spring-security-web-6.1.3.jar:6.1.3]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352) ~[spring-web-6.0.11.jar:6.0.11]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268) ~[spring-web-6.0.11.jar:6.0.11]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.0.11.jar:6.0.11]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar:6.0.11]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.0.11.jar:6.0.11]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar:6.0.11]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.0.11.jar:6.0.11]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.11.jar:6.0.11]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:166) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:894) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1740) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-10.1.12.jar:10.1.12]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+
+2023-11-26T17:35:09.305-03:00  INFO 3132 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2023-11-26T17:35:09.360-03:00  INFO 3132 --- [Thread-19] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-11-26T17:35:09.363-03:00  INFO 3132 --- [Thread-19] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Destroying Spring FrameworkServlet 'dispatcherServlet'
+2023-11-26T17:35:09.418-03:00  WARN 3132 --- [Thread-19] o.a.c.loader.WebappClassLoaderBase       : The web application [api] appears to have started a thread named [HikariPool-5 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.4.1/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.4.1/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@17.0.4.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+ java.base@17.0.4.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@17.0.4.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@17.0.4.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@17.0.4.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.4.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.4.1/java.lang.Thread.run(Thread.java:833)
+2023-11-26T17:35:09.549-03:00  INFO 3132 --- [Thread-19] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-11-26T17:35:09.550-03:00  INFO 3132 --- [Thread-19] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown initiated...
+2023-11-26T17:35:09.554-03:00  INFO 3132 --- [Thread-19] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown completed.
+2023-11-26T17:35:09.729-03:00  INFO 3132 --- [restartedMain] b.c.claudio.DigitalScheduleApplication   : Starting DigitalScheduleApplication using Java 17.0.4.1 with PID 3132 (C:\dev\spring-projects\agenda-digital\digital-schedule\target\classes started by claudio-marcos in C:\dev\spring-projects\agenda-digital\digital-schedule)
+2023-11-26T17:35:09.737-03:00  INFO 3132 --- [restartedMain] b.c.claudio.DigitalScheduleApplication   : No active profile set, falling back to 1 default profile: "default"
+2023-11-26T17:35:10.098-03:00  INFO 3132 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-11-26T17:35:10.159-03:00  INFO 3132 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 60 ms. Found 9 JPA repository interfaces.
+2023-11-26T17:35:10.276-03:00  INFO 3132 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-11-26T17:35:10.276-03:00  INFO 3132 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-11-26T17:35:10.277-03:00  INFO 3132 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.12]
+2023-11-26T17:35:10.298-03:00  INFO 3132 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+2023-11-26T17:35:10.298-03:00  INFO 3132 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 557 ms
+2023-11-26T17:35:10.361-03:00  INFO 3132 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-11-26T17:35:10.374-03:00  INFO 3132 --- [restartedMain] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-11-26T17:35:10.374-03:00  INFO 3132 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-11-26T17:35:10.376-03:00  INFO 3132 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Starting...
+2023-11-26T17:35:10.478-03:00  INFO 3132 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-6 - Added connection org.postgresql.jdbc.PgConnection@65f790b2
+2023-11-26T17:35:10.478-03:00  INFO 3132 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Start completed.
+2023-11-26T17:35:10.904-03:00  INFO 3132 --- [restartedMain] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-11-26T17:35:11.389-03:00  INFO 3132 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-11-26T17:35:12.713-03:00  INFO 3132 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-11-26T17:35:13.029-03:00  WARN 3132 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-11-26T17:35:13.112-03:00  INFO 3132 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@323a1966, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4e3bc9c0, org.springframework.security.web.context.SecurityContextHolderFilter@1395cf65, org.springframework.security.web.header.HeaderWriterFilter@75bd7212, org.springframework.security.web.authentication.logout.LogoutFilter@6ca6ab25, br.com.claudio.infra.config.security.SecurityFilter@7c0581b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@9986f0c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@172bb1cf, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@995b13e, org.springframework.security.web.session.SessionManagementFilter@25b539b5, org.springframework.security.web.access.ExceptionTranslationFilter@68be452e, org.springframework.security.web.access.intercept.AuthorizationFilter@5a4eecfa]
+2023-11-26T17:35:13.162-03:00  INFO 3132 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-11-26T17:35:13.174-03:00  INFO 3132 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/api'
+2023-11-26T17:35:13.179-03:00  INFO 3132 --- [restartedMain] b.c.claudio.DigitalScheduleApplication   : Started DigitalScheduleApplication in 3.491 seconds (process running for 31520.942)
+2023-11-26T17:35:13.181-03:00  INFO 3132 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2023-11-26T17:35:45.813-03:00  INFO 3132 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2023-11-26T17:35:45.851-03:00  INFO 3132 --- [Thread-23] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-11-26T17:35:45.859-03:00  WARN 3132 --- [Thread-23] o.a.c.loader.WebappClassLoaderBase       : The web application [api] appears to have started a thread named [HikariPool-6 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.4.1/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.4.1/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@17.0.4.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+ java.base@17.0.4.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@17.0.4.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@17.0.4.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@17.0.4.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.4.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.4.1/java.lang.Thread.run(Thread.java:833)
+2023-11-26T17:35:45.864-03:00  INFO 3132 --- [Thread-23] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-11-26T17:35:45.865-03:00  INFO 3132 --- [Thread-23] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Shutdown initiated...
+2023-11-26T17:35:45.885-03:00  INFO 3132 --- [Thread-23] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Shutdown completed.
+2023-11-26T17:35:46.062-03:00  INFO 3132 --- [restartedMain] b.c.claudio.DigitalScheduleApplication   : Starting DigitalScheduleApplication using Java 17.0.4.1 with PID 3132 (C:\dev\spring-projects\agenda-digital\digital-schedule\target\classes started by claudio-marcos in C:\dev\spring-projects\agenda-digital\digital-schedule)
+2023-11-26T17:35:46.063-03:00  INFO 3132 --- [restartedMain] b.c.claudio.DigitalScheduleApplication   : No active profile set, falling back to 1 default profile: "default"
+2023-11-26T17:35:46.368-03:00  INFO 3132 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-11-26T17:35:46.421-03:00  INFO 3132 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 52 ms. Found 9 JPA repository interfaces.
+2023-11-26T17:35:46.525-03:00  INFO 3132 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-11-26T17:35:46.526-03:00  INFO 3132 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-11-26T17:35:46.526-03:00  INFO 3132 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.12]
+2023-11-26T17:35:46.551-03:00  INFO 3132 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+2023-11-26T17:35:46.551-03:00  INFO 3132 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 486 ms
+2023-11-26T17:35:46.606-03:00  INFO 3132 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-11-26T17:35:46.613-03:00  INFO 3132 --- [restartedMain] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-11-26T17:35:46.614-03:00  INFO 3132 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-11-26T17:35:46.614-03:00  INFO 3132 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Starting...
+2023-11-26T17:35:46.706-03:00  INFO 3132 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-7 - Added connection org.postgresql.jdbc.PgConnection@36d397d2
+2023-11-26T17:35:46.706-03:00  INFO 3132 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Start completed.
+2023-11-26T17:35:47.073-03:00  INFO 3132 --- [restartedMain] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-11-26T17:35:47.272-03:00  INFO 3132 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-11-26T17:35:47.920-03:00  INFO 3132 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-11-26T17:35:48.203-03:00  WARN 3132 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-11-26T17:35:48.283-03:00  INFO 3132 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@46adf2, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@41612813, org.springframework.security.web.context.SecurityContextHolderFilter@d336361, org.springframework.security.web.header.HeaderWriterFilter@608203d6, org.springframework.security.web.authentication.logout.LogoutFilter@34feb30a, br.com.claudio.infra.config.security.SecurityFilter@1d62ac5b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@79bd737c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@9d1432e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@37dea985, org.springframework.security.web.session.SessionManagementFilter@6fd88c50, org.springframework.security.web.access.ExceptionTranslationFilter@5324ebd0, org.springframework.security.web.access.intercept.AuthorizationFilter@2581ffbe]
+2023-11-26T17:35:48.322-03:00  INFO 3132 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-11-26T17:35:48.333-03:00  INFO 3132 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/api'
+2023-11-26T17:35:48.338-03:00  INFO 3132 --- [restartedMain] b.c.claudio.DigitalScheduleApplication   : Started DigitalScheduleApplication in 2.301 seconds (process running for 31556.101)
+2023-11-26T17:35:48.340-03:00  INFO 3132 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2023-11-26T17:36:20.462-03:00  INFO 3132 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2023-11-26T17:36:20.490-03:00  INFO 3132 --- [Thread-27] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-11-26T17:36:20.495-03:00  WARN 3132 --- [Thread-27] o.a.c.loader.WebappClassLoaderBase       : The web application [api] appears to have started a thread named [HikariPool-7 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.4.1/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.4.1/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@17.0.4.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+ java.base@17.0.4.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@17.0.4.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@17.0.4.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@17.0.4.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.4.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.4.1/java.lang.Thread.run(Thread.java:833)
+2023-11-26T17:36:20.528-03:00  INFO 3132 --- [Thread-27] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-11-26T17:36:20.529-03:00  INFO 3132 --- [Thread-27] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Shutdown initiated...
+2023-11-26T17:36:20.531-03:00  INFO 3132 --- [Thread-27] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Shutdown completed.
+2023-11-26T17:36:20.838-03:00  INFO 3132 --- [restartedMain] b.c.claudio.DigitalScheduleApplication   : Starting DigitalScheduleApplication using Java 17.0.4.1 with PID 3132 (C:\dev\spring-projects\agenda-digital\digital-schedule\target\classes started by claudio-marcos in C:\dev\spring-projects\agenda-digital\digital-schedule)
+2023-11-26T17:36:20.839-03:00  INFO 3132 --- [restartedMain] b.c.claudio.DigitalScheduleApplication   : No active profile set, falling back to 1 default profile: "default"
+2023-11-26T17:36:21.094-03:00  INFO 3132 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-11-26T17:36:21.149-03:00  INFO 3132 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 54 ms. Found 9 JPA repository interfaces.
+2023-11-26T17:36:21.247-03:00  INFO 3132 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-11-26T17:36:21.248-03:00  INFO 3132 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-11-26T17:36:21.248-03:00  INFO 3132 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.12]
+2023-11-26T17:36:21.266-03:00  INFO 3132 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+2023-11-26T17:36:21.266-03:00  INFO 3132 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 426 ms
+2023-11-26T17:36:21.313-03:00  INFO 3132 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-11-26T17:36:21.320-03:00  INFO 3132 --- [restartedMain] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-11-26T17:36:21.320-03:00  INFO 3132 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-11-26T17:36:21.321-03:00  INFO 3132 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Starting...
+2023-11-26T17:36:21.405-03:00  INFO 3132 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-8 - Added connection org.postgresql.jdbc.PgConnection@1e53af9f
+2023-11-26T17:36:21.405-03:00  INFO 3132 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Start completed.
+2023-11-26T17:36:21.724-03:00  INFO 3132 --- [restartedMain] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-11-26T17:36:21.844-03:00  INFO 3132 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-11-26T17:36:22.467-03:00  INFO 3132 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-11-26T17:36:22.755-03:00  WARN 3132 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-11-26T17:36:22.836-03:00  INFO 3132 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@54cc91e8, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4a6136b4, org.springframework.security.web.context.SecurityContextHolderFilter@44811116, org.springframework.security.web.header.HeaderWriterFilter@6acab2bf, org.springframework.security.web.authentication.logout.LogoutFilter@1401465b, br.com.claudio.infra.config.security.SecurityFilter@762f2c58, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@293f06d2, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@16df0600, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@416f1954, org.springframework.security.web.session.SessionManagementFilter@45316c9b, org.springframework.security.web.access.ExceptionTranslationFilter@51379c88, org.springframework.security.web.access.intercept.AuthorizationFilter@2b583a32]
+2023-11-26T17:36:22.877-03:00  INFO 3132 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-11-26T17:36:22.890-03:00  INFO 3132 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/api'
+2023-11-26T17:36:22.895-03:00  INFO 3132 --- [restartedMain] b.c.claudio.DigitalScheduleApplication   : Started DigitalScheduleApplication in 2.094 seconds (process running for 31590.658)
+2023-11-26T17:36:22.898-03:00  INFO 3132 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2023-11-26T17:36:29.648-03:00  INFO 3132 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-11-26T17:36:29.649-03:00  INFO 3132 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-11-26T17:36:29.650-03:00  INFO 3132 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2023-11-26T17:38:40.864-03:00  INFO 3132 --- [RMI TCP Connection(573)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2023-11-26T17:38:40.883-03:00  INFO 3132 --- [RMI TCP Connection(573)-127.0.0.1] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-11-26T17:38:40.883-03:00  INFO 3132 --- [RMI TCP Connection(573)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Destroying Spring FrameworkServlet 'dispatcherServlet'
+2023-11-26T17:38:40.885-03:00  WARN 3132 --- [RMI TCP Connection(573)-127.0.0.1] o.a.c.loader.WebappClassLoaderBase       : The web application [api] appears to have started a thread named [HikariPool-8 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.4.1/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.4.1/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@17.0.4.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+ java.base@17.0.4.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@17.0.4.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@17.0.4.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@17.0.4.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.4.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.4.1/java.lang.Thread.run(Thread.java:833)
+2023-11-26T17:38:40.889-03:00  INFO 3132 --- [RMI TCP Connection(573)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-11-26T17:38:40.890-03:00  INFO 3132 --- [RMI TCP Connection(573)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Shutdown initiated...
+2023-11-26T17:38:40.892-03:00  INFO 3132 --- [RMI TCP Connection(573)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Shutdown completed.

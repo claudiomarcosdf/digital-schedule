@@ -6,7 +6,8 @@ public enum StatusSchedule {
 	CONFIRMADO("Confirmado"),
 	PRESENTE("Presente"),
 	FINALIZADO("Finalizado"),
-	CANCELADO("Cancelado");
+	CANCELADO("Cancelado"),
+	EVENTO("Evento");
 	
 	private String description;
 	
